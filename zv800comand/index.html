@@ -1,0 +1,2813 @@
+<!doctype html>
+<html>
+<head>
+	<title>Command Combiner for Minecraft 1.13</title>
+	<script src="java-script/jquery.min.js"></script>
+	<meta content="text/html;charset=UTF-8" http-equiv="Content-Type" />
+	<meta content="zv800" name="author" />
+	<meta content="The best generator for creating complex machines with one command! Supports encasing within a box, signs, and 20hz clocks, all automatically!" name="description" />
+	<meta content="to,one,command,command combiner,minecraft,generator,clock,only one command,filter,mcedit,1.9,1.10,1.11" name="keywords" />
+	<meta content="width=device-width, initial-scale=1" name="viewport" />
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet" type="text/css" />
+	<link href="java-script/ui/jquery-ui.theme.css" rel="stylesheet" />
+	<link href="css/font-awesome.min.css" rel="stylesheet" />
+	<link href="images/icon.png" rel="icon" type="image/x-icon" />
+	<link href="images/icon.png" rel="shortcut icon" type="image/x-icon" /><script src="../apis.google.com/js/platform.js" async defer></script><script src="../apis.google.com/js/client7b5f.js?onload=OnLoadCallback"></script>
+	<meta content="884453626222-2t9b5d8eailrc4mpcjktp63mtubefe29.apps.googleusercontent.com" name="google-signin-client_id" />
+	<meta content="no-cache" http-equiv="Pragma" />
+	<meta content="-1" http-equiv="Expires" /><script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','../www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-60109605-1', 'auto');
+		  ga('send', 'pageview');
+
+		</script><script async src="../pagead2.googlesyndication.com/pagead/js/f.txt"></script><script>
+		  (adsbygoogle = window.adsbygoogle || []).push({
+		    google_ad_client: "ca-pub-8713086085649301",
+		    enable_page_level_ads: true
+		  });
+		</script>
+	<style type="text/css">@font-face{font-family:'Open Sans';src:url(fonts/open-sans/OpenSans-Light.html)}@font-face{font-family:'Roboto';src:url(fonts/roboto/Roboto-Regular.html)}#generate:hover {background-color: #95ADD2; border-bottom: 1px solid #6789BD; margin-top: 22px; cursor: pointer; } #generate {margin-top: 20px; margin-bottom: 10px; padding: 5px; background-color: #B2CDF7; width: 180px; margin-left: auto; margin-right: auto; border-radius: 4px; border: 1px solid #6789BD; border-bottom: 3px solid #6789BD; }body{background:url(images/wallpaper.jpg) no-repeat center center fixed;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;overflow-x:hidden;font-family:'Asap';text-align:center}h1{margin-top:80px;font-family:'Ubuntu';font-size:2em;font-weight:700;color:#fff;text-shadow:2px 2px #022e6d}h2{margin-top:6px;color:#CFCFCF;font-size:1.4em;margin-bottom:5px;}.content-container{background-color:#fff;padding:10px;border-radius:10px;border:1px solid gray;margin:15px;margin-top:10px;max-width:800px;margin-left:auto;margin-right:auto}.output-command{margin-top:4px;background-color:#E6E6E6;display:none;border-radius:5px;max-width:95%;width:50%;height:50px;margin-top:10px}.output-stats{color:#5C5C5C}.title{font-family:'Ubuntu';font-size:24px;margin-left:15px;color:#1474d5;padding:5px;border-bottom:1px solid gray;text-align:left;padding-top:-10px}#input-commands{overflow:auto;resize:both;background-color:#fff;text-align:left;margin-left:auto;margin-right:auto;font-size:16px;border-color:#ccc;border-style:solid;padding:5px;border-width:1px;border-radius:10px;max-width:95%;width:810px;min-width:400px;font-family:'Roboto';height:300px;margin-bottom:15px}#input-commands:focus{outline:none}.subcategory{margin:10px;background-color:#ECECEC;padding-bottom:10px;width:200px;overflow:hidden;border-radius:4px;display:inline-block;text-align:left;vertical-align:top}.sub-name{width:100%;background-color:#1474d5;padding:4px 0;margin-bottom:8px;color:#fff;font-family:'Roboto';text-align:center}.option-checkbox{margin-top:5px;margin-bottom:5px;margin-left:15px}.option-box-text{margin-left:10px}#option-box-enable-text{margin-bottom:10px}#option-box-limit-slider{width:98%;margin-top:8px}#option-box-limit-slider-display{float:right;margin-right:10px;margin-top:3px}#output-command-title{margin-top:10px;margin-top:5px}.help-button,#add-sign,.remove-sign{font-family:'Ubuntu';font-size:16px;padding:2px;display:inline-block;margin-left:5px;margin-right:5px;margin-top:8px;background-color:#E8E8E8;border:1px solid #DADADA;border-radius:2px;width:180px}.help-button:hover,#add-sign:hover,.remove-sign:hover{background-color:#CECECE;border:1px solid silver;cursor:pointer}.help-container{display:none;width:90%;padding:5px;background-color:#ECECEC;border:1px solid #DCDCDC;border-radius:3px;overflow:hidden;margin:15px 5% 5px}.help-container p{width:50%;margin-left:auto;margin-right:auto}.help-function-container{width:95%;padding:5px;background-color:#fff;border-radius:5px;border:1px solid #DADADA;margin:20px auto}.help-title{font-family:'Ubuntu';font-size:17px;width:101%;margin-left:-5px;margin-top:-5px;padding:4px;background-color:#DCDCDC}.help-function{line-height:25px;font-family:'Ubuntu';font-size:17px;background-color:#1474d5;padding:2px 5px;border-radius:4px;color:#fff}.help-function-title{width:30%;text-align:center;border-bottom:1px solid #DADADA;padding:2px;margin-bottom:15px;margin-left:auto;margin-right:auto}.help-function-examples{margin-top:5px}.help-function-parameter{color:#FFD6AC}.help-function-parameter-1{color:#ACEAAC}.help-function-parameter-2{color:#FF9292}.help-function-example-text{padding:2px;background-color:#E6E6E6;width:86%;margin-left:auto;margin-right:auto;border-radius:3px}.help-how-to-p-container p{width:90%;margin-left:auto;margin-right:auto}.case-blocks-textbox{border-radius:3px;border:1px solid #D4D4D4;padding:2px;font-family:'Roboto'}#add-sign{margin-bottom:10px}.sign-item{margin:10px;background-color:#E6E6E6;border:1px solid #D4D4D4;border-radius:4px;padding:6px}.sign-item input{border-radius:3px;border:1px solid #D4D4D4;padding:2px;font-family:'Roboto';margin:2px}.remove-sign{background-color:#FFBABA}.remove-sign:hover{background-color:#E6A7A7}.option-label-left{margin-left:12px;margin-top:10px}#option-box-y-height{margin-left:12px;margin-top:5px;width:35px}#output-errors{display:none;background-color:#FFA3A3;border:1px solid #CF8484;border-radius:4px;padding:7px;font-family:'Roboto';font-size:16px;width:60%;margin:15px auto 10px}#output-notifications{display:none;background-color:#D3D6FF;border:1px solid #9FA2C3;border-radius:4px;padding:7px;font-family:'Roboto';font-size:16px;width:60%;margin:15px auto 10px}#ad-bottom{width:100%;text-align:center;margin-top:3px;margin-bottom:8px}#ad-below-signs{height:4%;width:70%;margin:10px 15% -5px}.help-link{text-decoration:none}.help-link:hover span{background-color:#1766B6}.italics{color:#454545;margin-top:2px;font-size:14px}.italics a{text-decoration:none;color:#4E76B2}.italics a:hover{text-decoration:underline}#input-instructions{pointer-events:none;margin-top:-280px;font-size:18px;color:gray;position:absolute;left:-50%;right:-50%}.twitter-follow-button{margin-left:30px}#footer-main{margin-top:400px}.offset-input{width:30px;display:inline}.sign-in-out-toggle{display:none;margin:0 auto}#sign-in-button{display:inline-block;vertical-align:middle}#sign-in-image{vertical-align:middle;padding:3px;z-index:10;position:relative;background-color:#ECECEC;border:1px solid #C5C5C5;border-radius:5px;overflow:hidden}#sign-out-container{width:110px;vertical-align:middle;margin-left:-20px;padding-left:25px;padding-top:3px;padding-bottom:3px;border:1px solid #C7C7C7;border-radius:4px;background-color:#F5F5F5;z-index:0}.sign-out-element{display:none}#signed-in{vertical-align:middle;display:none;width:180px;text-align:left;margin:12px 0 12px 15px}#sign-in-text{display:inline-block;vertical-align:middle;margin-left:15px;width:40%}#sign-in-container{margin-top:12px}.defaultbutton{font-family:'Ubuntu';font-size:16px;padding:2px;display:inline-block;margin-left:5px;margin-right:5px;margin-top:8px;background-color:#E8E8E8;border:1px solid #DADADA;border-radius:2px;width:180px}.defaultbutton:hover{background-color:#CECECE;border:1px solid silver;cursor:pointer}.project-subcat{padding:10px;width:90%;margin-left:auto;margin-right:auto;background-color:#EAEAEA;border-radius:4px}.button-white{background-color:#fff;padding:5px}.dialogue-box-container{z-index:1000;position:fixed;display:none}.page-fade{position:fixed;top:0;left:0;height:100%;width:100%;background-color:#000;opacity:.5}.dialogue-box{width:40%;min-width:600px;padding:10px;background-color:#fff;border-radius:8px;position:fixed;height:500px;top:50%;margin-top:-250px;border:1px solid #DFDFDF;right:0;left:0;margin-right:auto;margin-left:auto;width:40%;min-width:600px;padding:10px;background-color:#fff;border-radius:8px;position:fixed;margin-left:auto;margin-right:auto;height:500px;top:50%;margin-top:-250px;border:1px solid #DFDFDF}.exit{float:right;font-size:22px;color:#878787;margin-right:3px}.exit:hover{color:#9E9E9E;cursor:pointer}.copytext{background-color:#D6D6D6;border-radius:5px;border:1px solid #C1C1C1;width:80%;resize:none;height:200px}#export-textarea{margin-top:15px}#export-download{background-color:#DADADA;border:1px solid #B7B7B7}#export-download:hover{background-color:#B7B7B7}#export-help-container p{margin-top:5px;margin-bottom:5px}.export-subtitle{font-size:17px;font-weight:700}#export-help-container p.bigger{font-size:17px}.pastetext{background-color:#EEE;border-radius:5px;border:1px solid #C1C1C1;width:80%;resize:none;height:100px;margin-top:10px}.success-text{margin:8px;background-color:#C3FFC3;border:1px solid #86CE9D;text-align:center;border-radius:4px;padding:5px;display:none}.error-text{margin:8px;background-color:#FFE3E3;border:1px solid #D8A1A1;text-align:center;border-radius:4px;padding:5px;display:none}#project-container{background-color:#E2E5EC;border:1px solid #C1C8DC;border-radius:4px;margin-left:10px;padding-top:5px;padding-bottom:5px;display:none;width:70%;height:74px;vertical-align:middle}.showifsignedin{display:none}.project{width:113px;height:70px;display:inline-block;background-color:#c0cfe7;border:1px solid #7092be;border-radius:4px;margin-left:7px;overflow:hidden;-o-transition:.1s;-ms-transition:.1s;-moz-transition:.1s;-webkit-transition:.1s;transition:.1s}.project:hover{background-color:#D4DEEC;cursor:pointer}.showallprojects{background-color:#94ABCA;float:right;margin-right:5px}.showallprojects:hover{background-color:#D4DEEC}.project-name{font-size:16px;padding-top:5px;width:80%;text-align:center;display:inline-block;margin-left:5px;height:40px;overflow:hidden}.showallprojects .project-name{width:100%;margin:5px 0 0;height:17px}.project-ribbon{width:100%;background-color:#7092be;padding-top:3px;padding-bottom:3px;margin-top:1px;margin-bottom:4px;color:#fff;font-size:14px;clear:left;text-align:center}.project-remove{float:right;color:#7092be;margin-right:2px;margin-top:2px}.project-id,.project-jsonstring{display:none}.project-showall-icon{color:#c0cfe7;margin-left:43px}.save-dynamic-container{text-align:center}.save-dynamic-container .defaultbutton{background-color:rgba(52,62,185,0.3);border:1px solid rgba(114,118,165,0.65)}.save-dynamic-container .defaultbutton:hover{background-color:rgba(154,158,199,0.3)}.center{text-align:center}.showifsignedin.center{margin-top:8px;margin-bottom:5px}.neat-textinput{border:1px solid#D0D0D0;border-radius:4px;padding:8px;text-align:center}#save-input-name{margin-top:15px;width:300px;background-color:#f0f8ff}#project-none{text-align:center;margin-top:20px;color:#5D5C5C}.hidden{display:none}#rename-input{margin-top:10px}#sign-collapse{-o-transition:.3s;-ms-transition:.3s;-moz-transition:.3s;-webkit-transition:.3s;transition:.3s}#sign-collapse:hover{color:gray;cursor:pointer}.sign-collapse-rotate{-webkit-transform:rotate(-90deg);-moz-transform:rotate(-90deg);filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=-1)}.redbutton{background-color:#FFD8D8;border:1px solid #D2AFAF}.redbutton:hover{background-color:#D2AFAF}#showall-projectholder{width:95%;height:410px;margin-left:auto;margin-right:auto;margin-top:10px;border:1px solid #9C9C9C;background-color:#EAEAEA;border-radius:5px;padding:8px;padding-top:16px;padding-bottom:16px;overflow-y:auto}.project.project-byuser.in-allprojects{margin:9px}.fa-default-button{color:#BFBFBF}.fa-save-button{color:#6C6E90}#upload-textfile input{opacity:0}#upload-hidden-button{display:none}.aboveall{z-index:1001;}#ignore-unbalanced {background-color: #F5D1D1; width: 200px; padding: 2px; margin: 0 auto; margin-top: 5px; border: 1px solid #C58484; border-radius: 3px; }#ignore-unbalanced:hover{background-color: #DEAFAF; cursor:pointer;}.sign-reorder{float: left;margin-top: 4px;margin-left: 5px;color: #8E8E8E;position: absolute;}.sign-reorder i:hover{color: #464646} .sign-reorder i{display:block;}#visitold{display: block;margin-bottom: 7px;color: #dfeef1;font-size: 17px;text-decoration: none;}#visitold:hover{text-decoration: underline;}
+	</style>
+	<!-- Message to adblock users -->
+	<style type="text/css">#whitelist-message{position:fixed;width:500px;left:50%;margin-left:-250px;top:15%;background-color:#fff;border-radius:4px;border:1px solid gray;box-shadow:5px 5px 5px #000;font-family:Arial;padding:10px;display:none;font-size:18px}#whitelist-message-close{float:right;color:gray;margin-top:2px;font-size:16px}#whitelist-message-close:hover{cursor:pointer;color:#000}
+	</style>
+	<script src="js/showads.js"></script><script> 
+	            window.onload = function() { 
+	                setTimeout(function() {
+	                    if (window.adBlockFree === undefined) {
+	                        $('body').append('<div id="whitelist-message">error ad block on<div id="whitelist-message-close">Close</div></div>');
+							$('#whitelist-message').slideDown();
+							$('#whitelist-message-close').click(function() {
+								$('#whitelist-message').slideUp();
+							});
+	                        $.post('php/extensioncount.html', {has: true});
+	                    } else {
+	                        $.post('php/extensioncount.html', {has: false});
+	                    }
+	                }, 2000);
+	            };
+	        </script><!-- End of code for adblock user message -->
+</head>
+<body><script type="text/javascript">
+		    window._pt_lt = new Date().getTime();
+		    window._pt_sp_2 = [];
+		    _pt_sp_2.push('setAccount,511ff281');
+		    var _protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		    (function() {
+		        var atag = document.createElement('script'); atag.type = 'text/javascript'; atag.async = true;
+		        atag.src = _protocol + 'cjs.ptengine.com/pta_en.js';
+		        var s = document.getElementsByTagName('script')[0]; 
+		        s.parentNode.insertBefore(atag, s);
+		    })();
+		</script>
+<div id="nav-container">&nbsp;</div>
+<script src='java-script/navbar.js'></script>
+
+<h1>Command Combiner 1.13</h1>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script><script async src="../pagead2.googlesyndication.com/pagead/js/f.txt"></script><!-- Command Combiner upper --><script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+
+<div class="content-container">
+<div class="title" style="padding-top: 5px">Options</div>
+
+<div class="subcategory" id="box-options">
+<div class="sub-name">Encasing Options</div>
+<input checked="checked" class="option-checkbox" id="option-box-encase" onclick="optionEncaseChange()" type="checkbox" /><span class="option-label" id="option-box-enable-text">Enable casing</span><br />
+<span class="option-box-case-input"><span class="option-label option-box-text">Case main block</span> <input class="option-checkbox case-blocks-textbox" id="option-box-encase-block-window" type="text" value="black_stained_glass" /></span><br />
+<span class="option-box-case-input"><span class="option-label option-box-text">Case top/bottom blocks</span> <input class="option-checkbox case-blocks-textbox" id="option-box-encase-block-caps" type="text" value="black_terracotta" /></span></div>
+
+<div class="subcategory">
+<div class="sub-name">Orientation</div>
+
+<div style="height:25px"><span class="option-label option-box-text" id="option-box-enable-text">Structure Rotation</span> <span id="option-box-limit-slider-display"> <select id="structure-orientation-input"><option value="1">X+</option><option value="2">X-</option><option value="3">Z+</option><option value="4">Z-</option> </select> </span></div>
+
+<center style="margin-top: 5px;margin-bottom:5px"><span class="option-label-left">Structure Offset:</span></center>
+
+<center>X: <input class="case-blocks-textbox offset-input" id="option-box-offset-x" type="number" value="0" /> Y: <input class="case-blocks-textbox offset-input" id="option-box-offset-y" type="number" value="0" /> Z: <input class="case-blocks-textbox offset-input" id="option-box-offset-z" type="number" value="0" /></center>
+
+<div class="sub-name" style="margin-top:9px">Technical</div>
+<input class="option-checkbox" id="option-hopper-clock" onclick="optionHopperClockChange()" style="display: none" type="checkbox" /><span class="option-label" id="option-hopper-clock-text">Hopper Clock</span><br />
+<!-- <input type='checkbox' id='option-server-signs' class='option-checkbox' onclick='optionServerSignsChange()'><span class='option-label' id='option-server-signs-text'>1.9 Server Signs</span><br> --> <input checked="checked" class="option-checkbox" id="option-blockdata" onclick="optionBlockdataChange()" type="checkbox" /><span class="option-label" id="option-blockdata-text">Use /blockdata</span></div>
+
+<div class="subcategory">
+<div class="sub-name">Structure Dimensions</div>
+
+<center><span class="option-label-left">Box Length</span>&nbsp;<input class="case-blocks-textbox" id="option-box-length-x" min="1" style="width:36px" type="number" value="5" /></center>
+
+<center><span class="option-label-left">Box Width</span>&nbsp;&nbsp;<input class="case-blocks-textbox" id="option-box-length-z" min="1" style="width:36px;margin-top:8px" type="number" value="3" /></center>
+
+<div class="sub-name" style="margin-top:9px">Advanced</div>
+<span class="option-box-case-input"><span class="option-label option-box-text">Unique Scoreboard Obj.</span> <input class="option-checkbox case-blocks-textbox" id="option-advanced-objectivename" max="14" min="1" style="text-align:center" type="text" /></span></div>
+
+<div class="title" style="margin-top: 5px">Signs</div>
+
+<div id="sign-wrapper">
+<div id="add-sign">Add Sign</div>
+
+<div id="sign-container">&nbsp;</div>
+</div>
+
+<div id="ad-below-signs"><script async src="../pagead2.googlesyndication.com/pagead/js/f.txt"></script><!-- Command Combiner Responsive --><script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+				</script></div>
+
+<div class="title" id="testtitle" style="margin-top: 5px">Projects</div>
+
+<div id="sign-in-container">
+<div class="project-subcat" id="sign-in-subcat-main">
+<div id="not-signed-in">
+<div class="g-signin2 sign-in-element" data-onsuccess="onSignIn" id="sign-in-button">&nbsp;</div>
+made my zv800</div>
+
+<div class="showifsignedin" id="signed-in"><img class="sign-out-element" height="50px" id="sign-in-image" width="50px" />
+<div class="sign-out-element" id="sign-out-container"><a href="javascript:void(0)" id="sign-out-button" onclick="signOut()">Sign out</a></div>
+</div>
+
+<div class="showifsignedin" id="project-container">
+<div class="project showallprojects">
+<div class="project-name">Show All</div>
+</div>
+</div>
+
+<div class="showifsignedin center">
+<div class="save-dynamic-container" id="save-container-alreadyexists" style="display: none"><span class="defaultbutton" id="button-save-simple">Save</span><span class="defaultbutton" id="button-rename">Rename</span><span class="defaultbutton" id="button-newproject">New</span> <!-- <div id='save-hidden-id' class='hidden'></div><span class='defaultbutton' id='button-rename'>Rename</span>
+							<div id='save-hiddfen-name' class='hidden'></div> --></div>
+
+<div class="save-dynamic-container" id="save-container-doesntalreadyexist"><span class="defaultbutton" id="button-save-full">Save</span></div>
+
+<div class="success-text" id="open-project-result">&nbsp;</div>
+
+<div class="error-text" id="project-error">&nbsp;</div>
+</div>
+</div>
+
+<div class="project-subcat" id="projects-manual" style="margin-top: 10px">
+<div class="manproj-text" id="manual-projects-text">You can also manually save this as a project to your computer<br />
+by exporting/importing with these buttons!</div>
+
+<div class="defaultbutton button-white" id="manual-projects-button">Export to Computer</div>
+
+<div class="defaultbutton button-white" id="manual-projects-import">Import</div>
+
+<div class="success-text" id="import-result">The project was successfully imported!</div>
+</div>
+</div>
+<!-- Dialogue boxes beginning -->
+
+<div class="dialogue-box-container" id="export-container">
+<div class="page-fade">&nbsp;</div>
+
+<div class="dialogue-box" id="export-box">
+<div class="title">Export<span class="exit">X</span></div>
+<textarea class="copytext" id="export-textarea" onclick="this.focus();this.select()" readonly="readonly"></textarea>
+
+<div class="help-function-container" id="export-help-container">
+<p>To export your commands and settings as a project, you can either:</p>
+
+<p><span class="export-subtitle">Copy:</span> One method of saving your project manually is to copy the text from above, and paste it into a safe place on your computer.</p>
+
+<p><span class="export-subtitle">Download:</span> The other method of manual saving is to download a text file containg the project. To do so, click the &#39;download&#39; button below.</p>
+
+<p class="bigger">If you would like to save this project to the server (which is recommended) instead of your computer, exit this &#39;export window&#39;, and</p>
+
+<div class="defaultbutton" id="export-download">Download</div>
+</div>
+</div>
+</div>
+
+<div class="dialogue-box-container" id="import-container">
+<div class="page-fade">&nbsp;</div>
+
+<div class="dialogue-box" id="import-box">
+<div class="title">Import<span class="exit">X</span></div>
+<textarea class="pastetext" id="import-textarea" placeholder="Either paste your &quot;exported text&quot; here, or upload the .txt file below!"></textarea>
+
+<div class="defaultbutton" id="import-done">Import</div>
+
+<div class="help-function-container" id="import-help-container">
+<p>To import a saved project, you can either:</p>
+
+<p><span class="export-subtitle">Paste:</span> One method of importing your project manually is to paste the project text into the area above.</p>
+
+<p><span class="export-subtitle">Upload:</span> The other method of manual saving is to upload the &#39;.txt&#39; file containg the project. To do so, click the &#39;upload&#39; button below.</p>
+<!-- Put upload button here -->
+
+<p class="bigger">If you would like to open a project that was saved on the server (which is recommended) instead of your computer, exit this &#39;export window&#39;, and</p>
+
+<div class="defaultbutton" id="upload-textfile"><input id="upload-hidden-button" type="file" />Upload</div>
+</div>
+</div>
+</div>
+
+<div class="dialogue-box-container" id="save-container">
+<div class="page-fade">&nbsp;</div>
+
+<div class="dialogue-box" id="save-box" style="height:300px">
+<div class="title">Save Project<span class="exit">X</span></div>
+<input class="neat-textinput" id="save-input-name" placeholder="Project name" type="text" />
+<div class="help-function-container" id="save-help-container">
+<p>Upon clicking &quot;Save&quot;, your current commands, settings, and signs will be saved as a project on the server. You will be able to open this project under the &quot;Projects&quot; section.</p>
+
+<div class="defaultbutton" id="save-done">Save</div>
+</div>
+
+<div class="error-text" id="save-error-text">&nbsp;</div>
+
+<div class="success-text" id="save-success-text">&nbsp;</div>
+</div>
+</div>
+
+<div class="dialogue-box-container" id="rename-container">
+<div class="page-fade">&nbsp;</div>
+
+<div class="dialogue-box" id="rename-box" style="height:300px">
+<div class="title">Rename Current Project<span class="exit">X</span></div>
+<input class="neat-textinput" id="rename-input" placeholder="New project name" type="text" />
+<div class="help-function-container" id="rename-help-container">
+<p>Upon clicking &quot;Rename&quot;, your current open project will be saved with the new name that you specified above. You will be still able to open this project under the &quot;Projects&quot; section.</p>
+
+<div class="defaultbutton" id="rename-done">Rename</div>
+</div>
+
+<div class="error-text" id="rename-error-text">&nbsp;</div>
+
+<div class="success-text" id="rename-success-text">&nbsp;</div>
+</div>
+</div>
+
+<div class="dialogue-box-container aboveall" id="delete-container">
+<div class="page-fade">&nbsp;</div>
+
+<div class="dialogue-box" id="delete-box" style="height:210px">
+<div class="title">Delete Project<span class="exit">X</span></div>
+
+<div class="help-function-container" id="delete-help-container">
+<p id="delete-text">&nbsp;</p>
+
+<div class="defaultbutton redbutton" id="delete-done">Delete</div>
+</div>
+
+<div class="error-text" id="delete-error-text">&nbsp;</div>
+
+<div class="success-text" id="delete-success-text">&nbsp;</div>
+</div>
+</div>
+
+<div class="dialogue-box-container" id="showall-container">
+<div class="page-fade">&nbsp;</div>
+
+<div class="dialogue-box" id="showall-box">
+<div class="title">All Projects<span class="exit">X</span></div>
+
+<div class="showall-projectholder" id="showall-projectholder">&nbsp;</div>
+
+<div class="error-text" id="showall-error-text">&nbsp;</div>
+
+<div class="success-text" id="showall-success-text">&nbsp;</div>
+</div>
+</div>
+<!-- End of dialogue boxes -->
+
+<div class="title" style="margin-top: 5px">Help</div>
+
+<div class="help-button" id="help-show-functions">Show built in functions</div>
+
+<div class="help-button" id="help-show-mcedit">MCEdit Filter</div>
+
+<div class="help-container" id="help-built-in-functions">
+<div class="help-title">Built in functions</div>
+
+<p>Below is a list of the built in functions. They can be used by entering them as a command in the command combiner below!</p>
+
+<div class="help-function-container">
+<div class="help-function-title">Initial (Commands that only run once)</div>
+<span class="help-function">INIT:<span class="help-function-parameter-1">command</span></span>
+
+<div class="help-function-title help-function-examples">Examples</div>
+
+<div class="help-function-example-text">INIT:tellraw @a {&quot;color&quot;:&quot;red&quot;,&quot;text&quot;:&quot;I&#39;m only going to say this once!&quot;}</div>
+
+<p>Writing this would cause the tellraw command to only run once, when the user first runs the compacted command.</p>
+</div>
+
+<div class="help-function-container">
+<div class="help-function-title">Command Block Modifiers</div>
+<span class="help-function">R:<span class="help-function-parameter-1">command</span></span><br />
+<span class="help-function">I:<span class="help-function-parameter-1">command</span></span>
+
+<div class="help-function-title help-function-examples">Examples</div>
+
+<div class="help-function-example-text">R:say I&#39;m on my own repeating cycle!</div>
+
+<p>The command above would be placed in a repeating command block, overriding whatever the command combiner would have originally made it by default.</p>
+
+<div class="help-function-example-text">I:say I&#39;m an impulse command block!</div>
+
+<p>The command above would be placed in an impulse command block, which you can then activate by using the TAG feature (explained below).</p>
+</div>
+
+<div class="help-function-container">
+<div class="help-function-title">Multi-line Modifiers</div>
+<span class="help-function">/*<span class="help-function-parameter-2">modifiers</span></span><br />
+<span class="help-function"><span class="help-function-parameter-1">command(s)</span></span><br />
+<span class="help-function">*/</span>
+
+<div class="help-function-title help-function-examples">Examples</div>
+
+<div class="help-function-example-text">/*R:</div>
+
+<div class="help-function-example-text">say 1</div>
+
+<div class="help-function-example-text">say 2</div>
+
+<div class="help-function-example-text">*/</div>
+
+<p>Both of the &#39;/say&#39; commands would be placed in repeating command blocks</p>
+
+<div class="help-function-example-text">/*INIT:/summon</div>
+
+<div class="help-function-example-text">zombie</div>
+
+<div class="help-function-example-text">creeper</div>
+
+<div class="help-function-example-text">*/</div>
+
+<p>Since &#39;/summon&#39; would be added before each command within the multi-line modifier, this would summon a zombie and a creeper</p>
+</div>
+
+<div class="help-function-container">
+<div class="help-function-title">NBT in Entity Selectors</div>
+<span class="help-function">nbt={<span class="help-function-parameter-1"> NBT DATA</span>}</span>
+
+<div class="help-function-title help-function-examples">Examples</div>
+
+<div class="help-function-example-text">execute @e[type=armor_stand,nbt={OnGround:1b}] ~ ~ ~ setblock ~ ~-1 ~ stone</div>
+
+<p>Using this command in the command combiner would cause a stone block to be placed under any armor_stand which is standing on the ground.</p>
+</div>
+
+<div class="help-function-container">
+<div class="help-function-title">Conditionals or IF / DO statements</div>
+<span class="help-function">COND:(command)</span><br />
+or<br />
+<span class="help-function">IF:<span class="help-function-parameter-1">command</span></span><br />
+<span class="help-function">DO:<span class="help-function-parameter-1">command</span></span>
+
+<div class="help-function-title help-function-examples">Examples (COND)</div>
+
+<div class="help-function-example-text">testfor @a[m=1]</div>
+
+<div class="help-function-example-text">COND:say A player is in creaive mode!</div>
+
+<p>Using these 2 commands in the command combiner would cause the phrase &quot;A player is in creative mode&quot; to be printed to the chat only .lt least one player is in creative mode</p>
+
+<div class="help-function-title help-function-examples">Examples (IF/DO)</div>
+
+<div class="help-function-example-text">IF:testfor @a[m=1]</div>
+
+<div class="help-function-example-text">DO:say A player is in creaive mode!</div>
+
+<p>The two commands above would have the exact same outcome as the previous example. This is simply a different way to write it, which is easier to see the logic when reviewing your commands.</p>
+</div>
+
+<div class="help-function-container">
+<div class="help-function-title">Coordinate Trackers</div>
+<span class="help-function">TAG#(identifier):</span> and <span class="help-function">@TAG-(identifier)</span><br />
+or<br />
+<span class="help-function">@prev</span>
+
+<div class="help-function-title help-function-examples">Examples (TAG)</div>
+
+<div class="help-function-example-text">TAG#3:say Hello</div>
+
+<div class="help-function-example-text">setblock @TAG-3 dirt</div>
+
+<p>If you wrote these commands in the command combiner, the &quot;setblock&quot; command would place a dirt block at the location of the &quot;say Hello&quot; command. This is useful when you need to access a certain command blocks coordinates from multiple other command blocks. (Especially useful for /stats)</p>
+
+<div class="help-function-title help-function-examples">Examples (@prev)</div>
+
+<div class="help-function-example-text">say Hello</div>
+
+<div class="help-function-example-text">setblock @prev dirt</div>
+
+<p>If you used these commands in the command combiner, it would essentially do the exact same thing as the previous example, except this one is much quicker to type, but it can only be used to target the command prior to the one referencing it.</p>
+</div>
+
+<div class="help-function-container">
+<div class="help-function-title">Floor Crafting</div>
+<span class="help-function">FloorCrafting: <span class="help-function-parameter">(ingredient 1)</span> <span class="help-function-parameter-1">(damage val)</span> <span class="help-function-parameter-2">(NBT - or {} if none)</span> <span class="help-function-parameter">(ingredient 2)</span> <span class="help-function-parameter-1">(damage val)</span> <span class="help-function-parameter-2">(NBT - or {} if none)</span> <span class="help-function-parameter"><b>RES:</b>(result item)</span> <span class="help-function-parameter-1">(damage val)</span> <span class="help-function-parameter-2">(NBT - or {} if none)</span> (scoreboard obj. name - optional)</span>
+
+<div class="help-function-title help-function-examples">Examples</div>
+
+<div class="help-function-example-text">FloorCrafting: grass 0 {display:{Name:&quot;The Best Grass&quot;}} stone 0 {} RES:diamond_sword 10 {display:{Name:&quot;Magic Sword&quot;}}</div>
+
+<p>Using this in the command combiner would allow you to throw a grass block item and a stone block item together on the ground to create 1 diamond sword named &quot;Magic Sword&quot;.</p>
+
+<p>You can use as many ingredients and result items as you want, just make sure that ingredient items do not start with &#39;RES:&#39;, but result items do!</p>
+</div>
+</div>
+
+<div class="help-container" id="help-how-to">
+<div class="help-title">How to use the command combiner</div>
+
+<div class="help-function-container">
+<div class="help-function-title">Writing commands</div>
+
+<p>If you are already familiar with command blocks, you should already be a master at using the command combiner! Simply write some commands, each on a new line in the large text field below. They will all be placed on a 20hz fill clock in the final command. If there is a command that you only want to run once, just write <span class="help-function-title help-function-examples">INIT:</span> before that command. This is mostly useful for adding scoreboard objectives and for /tellraw install messages.</p>
+
+<div class="help-function-title help-function-examples">Examples</div>
+
+<div class="help-function-example-text">INIT:/give @a stone 1</div>
+
+<div class="help-function-example-text">/say test</div>
+
+<p>If you were to write these 2 lines in the command combiner, it would give every player 1 stone upon install, then it would constantly spam the chat with &quot;test&quot;, 20 times per second.</p>
+</div>
+
+<div class="help-function-container">
+<div class="help-function-title">Comment lines</div>
+
+<p>Comments are a very useful feature to help you organize your project. A line can be commented by placing a # before the line. The commented line will be ignored when the command is generated.</p>
+
+<div class="help-function-title help-function-examples">Examples</div>
+
+<div class="help-function-example-text"># Removes 1 from the score &#39;Ex&#39; until it is at 0</div>
+
+<div class="help-function-example-text">/scoreboard players remove @a[scores={Ex=1..}] Ex 1</div>
+
+<p>If you were to copy and paste those 2 lines into the command combiner, only the second one would appear in the final command. The commented line would be ignored.</p>
+</div>
+</div>
+
+<div class="help-container" id="help-mcedit">
+<div class="help-title">MCEdit Filter</div>
+<!-- <p style='width: 80%'>
+					In addition to being able to write the commands line-by-line into the command combiner, you will soon be able to use MCEdit to convert an in-game creation into a one-command install creation, with a simple filter!<br>
+				</p> -->
+
+<p style="width: 80%">In addition to being able to write the commands line-by-line into the command combiner, you can also use MCEdit to convert an in-game creation into a one-command install creation, with this filter! Check the box below if you have used the filter to import a creation from a world for this command.</p>
+
+<p><input id="import-mcedit" type="checkbox" />Import via MCEdit</p>
+
+<div class="help-function-container" style="padding-bottom: 10px">
+<div class="help-function-title">Get the filter and MCEdit</div>
+<a class="help-link" href="http://www.mediafire.com/file/sb272btfb4ozgnu/CmdCombiner_1_11.py" target="_blank"><span class="help-function">Download Command Combiner 1.11 filter</span></a> <a class="help-link" href="http://khroki.github.io/MCEdit-Unified/" target="_blank"><span class="help-function">Download MCEdit</span></a></div>
+
+<div class="help-function-container">
+<div class="help-function-title">How to use the filter</div>
+
+<p style="width: 90%">To use the filter on a pre-built command block contraption, simply open the world in MCEdit. Select the chain of command blocks that you want to compress into one command. <strong>Repeat command blocks and chain command blocks will automatically be placed on a clock. Impulse command blocks will become INIT commands.</strong> Run the filter, then place the generated command block somewhere in the world. Now, open the world in Minecraft, right click the generated command block, then copy all of the text from it. Paste this text into the command input field below, and check the checkbox above, which reads &quot;Import via MCEdit filter&quot;. Now, change your options as you please, and press generate. Note that the filter only will work for creations that are on a 20hz clock. To have commands that only are executed once, just include them in the selection, but don&#39;t have them on a clock. If the creation was originally split among multiple 20hz clocks in your world, the filter may be unable to preserve the original order or execution.</p>
+</div>
+</div>
+
+<div class="help-container" id="help-others">
+<div class="help-title">Other Command Combiners</div>
+
+<p style="width: 80%">Below are the other variants of my command combiners.</p>
+
+<div class="help-function-container" style="padding-bottom: 10px">
+<div class="help-function-title">1.9/1.10 Command Combiner</div>
+<a class="help-link" href="cmdcombiner-1-10.html"><span class="help-function">Command Combiner 1.9/1.10</span></a></div>
+
+<div class="help-function-container" style="padding-bottom: 10px">
+<div class="help-function-title">1.8 Universal Version</div>
+<a class="help-link" href="cmduniversal.html"><span class="help-function">Command Combiner Universal</span></a></div>
+
+<div class="help-function-container" style="padding-bottom: 10px">
+<div class="help-function-title">First Boxed Version</div>
+<a class="help-link" href="cmdboxed.html"><span class="help-function">Command Combiner Boxed</span></a></div>
+
+<div class="help-function-container" style="padding-bottom: 10px">
+<div class="help-function-title">Vertical Version</div>
+<a class="help-link" href="commandvert.html"><span class="help-function">Command Combiner Vertical</span></a></div>
+
+<div class="help-function-container" style="padding-bottom: 10px">
+<div class="help-function-title">Original Horizontal Version</div>
+<a class="help-link" href="commanddump.html"><span class="help-function">Command Combiner Horizontal</span></a></div>
+</div>
+
+<div class="title" id="output-command-title">Output</div>
+
+<div id="output-container">&nbsp;</div>
+
+<div id="output-errors">&nbsp;</div>
+
+<div id="output-notifications">&nbsp;</div>
+
+<div id="generate">Generate</div>
+</div>
+
+<p><textarea id="input-commands" placeholder="Write your commands here! Each command should be on a new line! They will be combined into a single-command installer!" spellcheck="false"></textarea></p>
+
+<div id="ad-bottom"><script async src="../pagead2.googlesyndication.com/pagead/js/f.txt"></script><!-- Command Combiner Lower --><script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script></div>
+<script>
+
+			$('#input-commands').change(function() {
+				isDirty = true;
+			});
+
+			// Warn users if there is an unsaved project open and they are closing the page
+			var isDirty = false;
+
+		    window.onbeforeunload = function (e) {
+		        if (!isDirty) {
+		            return undefined;
+		        }
+
+		        var confirmationMessage = 'It looks like you have been editing something. '
+		                                + 'If you leave before saving, your changes will be lost.';
+
+		        (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+		        return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
+		    };
+
+			function updateShownProjects() {
+				// Update the projects on the page
+				$.get('tokensignin77c2.html?user_id=' + profile.getId() + '&id_token=' + id_token, function(data) {
+					importProjects(data);
+				});
+			}
+
+			currentOpenProj = {
+				id: -1
+			};
+			function setCurrentOpenProject(projectId, projectName) {
+				$('#save-container-doesntalreadyexist').css('display', 'none');
+				$('#save-container-alreadyexists').css('display', 'block');
+				currentOpenProj = {
+					id: projectId,
+					name: projectName
+				}
+				$('#rename-input').val(projectName);
+			}
+
+			$('#button-rename').click(function() {
+				$('#rename-container').fadeIn();
+			});
+
+			$('#button-save-full').click(function() {
+				$('#save-container').fadeIn(300);
+			});
+
+			$('#import-done').click(function() {
+				if (!promptOnOpen())
+					return;
+				importWithResultMessage($('#import-textarea').val());
+			})
+
+			function promptOnOpen() {
+				if ($('#input-commands').val().length >= 1 || currentOpenProj.id > -1) {
+					if (currentOpenProj.id > -1) {
+						var continueImport = confirm('Are you sure you would like to open this project? The current open project will automatically be saved!');
+						if (!continueImport) {
+							return false;
+						}
+						saveProjectSimple();
+						return true;
+					} else {
+						var continueImport = confirm('Are you sure you would like to open this project? The current commands will be overwritten unless you save them as a project first!');
+						if (!continueImport) {
+							return false;
+						}
+						return true;
+					}
+				} else {
+					return true;
+				}
+			}
+
+			useHopperClock = false;
+			function optionHopperClockChange() {
+				if ($('#option-hopper-clock').is(':checked')) {
+					useHopperClock = true;
+				} else {
+					useHopperClock = false;
+				}
+			}
+
+			useServerSigns = true;
+			// function optionServerSignsChange() {
+			// 	if ($('#option-server-signs').is(':checked')) {
+			// 		useServerSigns = true;
+			// 	} else {
+			// 		useServerSigns = false;
+			// 	}
+			// }
+
+			function importProjects(allProjects) {
+				var projectsArray = JSON.parse(allProjects);
+
+				// Loop through the user's account's projects and insert them into the page (w/ the invisible project code divs)
+				var currentProjName;
+				var currentProjCode;
+				var currentProjChars;
+				var currentProjCodeAccess = {};
+				$('#project-container').children('.project-byuser').remove();
+				$('#project-container').children('#project-none').remove();
+				$('#showall-projectholder').empty();
+				for (p = 0; p < projectsArray.length && p < 3; p++) {
+					// The "&& p < 3" part limits the smaller container to only 3 projects
+					currentProjName = projectsArray[p][0];
+					currentProjCode = projectsArray[p][1];
+					currentProjId = projectsArray[p][2];
+					currentProjCodeAccess = JSON.parse(projectsArray[p][1]);
+					currentProjChars = currentProjCodeAccess.len;
+
+					$('#project-container').append("<div class='project project-byuser'>"+
+							"<div class='project-name'>" + currentProjName + "</div>"+
+							"<i class='fa fa-times-circle project-remove'></i>"+
+							"<div class='project-ribbon'>" + currentProjChars + " Chars.</div>"+
+							"<div class='project-id'>" + currentProjId + "</div>"+
+							"<div class='project-jsonstring'>" + currentProjCode + "</div>"+
+						"</div>");
+				}
+
+				for (p = 0; p < projectsArray.length; p++) {
+					// There is no "&& p < 3" part, so this container shows all of the user's projects
+					currentProjName = projectsArray[p][0];
+					currentProjCode = projectsArray[p][1];
+					currentProjId = projectsArray[p][2];
+					currentProjCodeAccess = JSON.parse(projectsArray[p][1]);
+					currentProjChars = currentProjCodeAccess.len;
+
+					$('#showall-projectholder').append("<div class='project project-byuser in-allprojects'>"+
+							"<div class='project-name'>" + currentProjName + "</div>"+
+							"<i class='fa fa-times-circle project-remove'></i>"+
+							"<div class='project-ribbon'>" + currentProjChars + " Chars.</div>"+
+							"<div class='project-id'>" + currentProjId + "</div>"+
+							"<div class='project-jsonstring'>" + currentProjCode + "</div>"+
+						"</div>");
+				}
+
+				// Show message in project container if no projects
+				if (projectsArray.length == 0) {
+					$('#project-container').append('<div id="project-none">You have not saved any projects yet!</div>');
+				}
+
+				clickToDelete = false;
+
+				// Deleting a project (takes priority over opening a project)
+				$('.project-remove').on('click', function() {
+					delProjId = $(this).parent().children('.project-id').html();
+					delProjName = $(this).parent().children('.project-name').html();
+					$('#delete-container').fadeIn(200);
+					$('#delete-text').html('Are you sure you would like to delete the project "' + delProjName + '"?')
+					clickToDelete = true;
+					setTimeout(function() {clickToDelete = false}, 2);
+				});
+
+				$('.project-byuser').on('click', function() {
+					if (clickToDelete) {return};
+					if (!promptOnOpen())
+						return;
+
+					$('#showall-container').fadeOut(300);
+
+					var selectedProjectJSON = $(this).children('.project-jsonstring').html();
+
+					setCurrentOpenProject($(this).children('.project-id').html(), $(this).children('.project-name').html());
+					loadProject(selectedProjectJSON);
+					// Show success text for opening the project
+					$('#open-project-result').html('The project "' + $(this).children('.project-name').html() + '" was opened successfully!').fadeIn(200);
+					setTimeout(function() {
+						$('#open-project-result').slideUp();
+					}, 5000);
+				});
+			}
+
+			$('#delete-done').click(function() {
+				$.post('php/cmdcombinerupdate.html', {
+					id_token: id_token,
+					user_id: profile.getId(),
+					project_name: 'null',
+					project_code: 'null',
+					project_id: delProjId,
+					change: 'delete'
+				}, function(data) {
+					if (data == 'success') {
+						$('#delete-success-text').html('"' + delProjName + '" was successfully deleted!').slideDown();
+						updateShownProjects();
+						setTimeout(function() {
+							$('#delete-success-text').slideUp(200);
+							$('#delete-container').fadeOut(150);
+						}, 3000);
+					} else {
+						$('#delete-error-text-text').html('There was an error deleting the project "' + delProjName + '"').slideDown();
+						setTimeout(function() {
+							$('#delete-error-text-text').slideUp(300);
+						}, 5000);
+					}
+				});
+			});
+
+			var nbtSelectorCur = 1;
+			var scoreboardObjInUse = [false, false, false];
+			var nbtScoreArr = [];
+
+			function nbtInSelectors(currentCommand) {
+				var pattern = /@[eapr]\[.*nbt=\{(.*?)\}.*\]/g;
+				if (!pattern.test(currentCommand)) {
+					// End the function here if it doesn't include an NBT shortcut
+					return;
+				}
+
+				scoreboardObjInUse[1] = true;
+
+				var entitySelectorChar = currentCommand.split(/ (@[eapr])\[/g)[1];
+				var scoreboardObjName = inputScoreboard + '_N';
+				var nbtStr = currentCommand.split(pattern)[1];
+
+				var objectiveAlreadyExists = false;
+				var finalCur = 0;
+
+				for (n = 0; n < nbtScoreArr.length; n++) {
+					if (nbtScoreArr[n].nbtstr == nbtStr) {
+						objectiveAlreadyExists = true;
+						finalCur = nbtScoreArr[n].score;
+					}
+				}
+				if (!objectiveAlreadyExists) {
+					nbtScoreArr[nbtScoreArr.length] = {
+						nbtstr: nbtStr,
+						score: nbtSelectorCur
+					};
+					finalCur = nbtSelectorCur;
+				}
+
+				allCommands.splice(i, 0, {
+					cmd: 'scoreboard players set ' + entitySelectorChar + ' ' + scoreboardObjName + ' ' + finalCur + ' {' + nbtStr + '}',
+					tag: 'none'
+				});
+
+				// Add a command at the end to reset the score each tick
+				allCommands[allCommands.length] = {
+					cmd: 'scoreboard players reset @e ' + scoreboardObjName,
+					tag: 'none'
+				};
+
+				// Add 1 to i since the previous index will change to the inserted object
+				i++;
+
+				// the following lines are removed since there is actually a way to include NBT data in an entity selector as of 1.13
+
+				// allCommands[i].cmd = allCommands[i].cmd.replace(/,nbt=\{.*?\},/g, ',score_'+scoreboardObjName+'_min='+finalCur+',score_'+scoreboardObjName+'='+finalCur+',');
+				// allCommands[i].cmd = allCommands[i].cmd.replace(/,nbt=\{.*?\}/g, ',score_'+scoreboardObjName+'_min='+finalCur+',score_'+scoreboardObjName+'='+finalCur);
+				// allCommands[i].cmd = allCommands[i].cmd.replace(/nbt=\{.*?\},/g, 'score_'+scoreboardObjName+'_min='+finalCur+',score_'+scoreboardObjName+'='+finalCur + ',');
+				// allCommands[i].cmd = allCommands[i].cmd.replace(/nbt=\{.*?\}/g, 'score_'+scoreboardObjName+'_min='+finalCur+',score_'+scoreboardObjName+'='+finalCur);
+
+				// Increase i again so that it doesn't repeat into an infinite loop
+				// i++;
+
+				if (!objectiveAlreadyExists) {
+					nbtSelectorCur++;
+				}
+			}
+
+			function loadProject(projectJSON) {
+				var importJSON = JSON.parse(projectJSON);
+				// var users = localStorage.registeredUsers? JSON.parse(localStorage.registeredUsers) : [];
+
+				// Settings
+				$('#structure-orientation-input').val(importJSON.settings.orientation);
+				$('#option-box-offset-x').val(importJSON.settings.offset[0]);
+				$('#option-box-offset-y').val(importJSON.settings.offset[1]);
+				$('#option-box-offset-z').val(importJSON.settings.offset[2]);
+				$('#option-box-length-x').val(importJSON.settings.dimensions[0]);
+				$('#option-box-length-z').val(importJSON.settings.dimensions[1]);
+				$('#option-box-encase').prop('checked', importJSON.settings.casing.enabled);
+				$('#option-box-encase-block-caps').val(importJSON.settings.casing.caps);
+				$('#option-box-encase-block-window').val(importJSON.settings.casing.sides);
+				$('#option-advanced-objectivename').val(importJSON.settings.scoreboard);
+				if (importJSON.settings.hopper)
+					$('#option-hopper-clock').prop('checked', false).click();
+				if (importJSON.settings.svrsigns)
+					$('#option-server-signs').prop('checked', false).click();
+
+				// Signs
+				$('.sign-item').remove();
+				// Creates the correct amount of sign item divs
+				for (j = 0; j < importJSON.settings.signs.length; j++) {
+					addSign();
+				}
+				// Fill those divs with the correct values
+				var signImportCounter = 0;
+				$('.sign-item').each(function(signIndex, signValue) {
+					$(signValue).children('.sign-input-line').each(function(signSubIndex, signSubValue) {
+						$(signSubValue).val(importJSON.settings.signs[signIndex][signSubIndex].txt);
+					});
+					$(signValue).children('.sign-input-color').each(function(signSubIndex, signSubValue) {
+						$(signSubValue).val(importJSON.settings.signs[signIndex][signSubIndex].clr);
+					});
+					$(signValue).children('.sign-input-cmd').each(function(signSubIndex, signSubValue) {
+						$(signSubValue).val(importJSON.settings.signs[signIndex][signSubIndex].command);
+					});
+					$(signValue).children('.sign-input-style-bold').each(function(signSubIndex, signSubValue) {
+						$(signSubValue).prop('checked', importJSON.settings.signs[signIndex][signSubIndex].bold);
+					});
+					$(signValue).children('.sign-input-style-italics').each(function(signSubIndex, signSubValue) {
+						$(signSubValue).prop('checked', importJSON.settings.signs[signIndex][signSubIndex].italics);
+					});
+					$(signValue).children('.sign-input-style-bold').each(function(signSubIndex, signSubValue) {
+						$(signSubValue).prop('checked', importJSON.settings.signs[signIndex][signSubIndex].underline);
+					});
+					$(signValue).children('.sign-input-destroy').each(function(signSubIndex, signSubValue) {
+						if (importJSON.settings.signs[signIndex][0].destroy)
+							$(signSubValue).trigger('click');
+					});
+					$(signValue).children('.sign-input-activatetoggle').each(function(signSubIndex, signSubValue) {
+						if (importJSON.settings.signs[signIndex][0].tog)
+							$(signSubValue).trigger('click');
+					});
+				});
+
+				// Commands
+				$('#input-commands').val(importJSON.cmds);
+			}
+
+			function generateExportString() {
+				// var exportCommandsString = '$*!*$' + ($('#input-commands').val().replace(/\n/g, '_*&*_'));
+				var exportCommandsArray = $('#input-commands').val();
+				var settings = {
+					orientation: $('#structure-orientation-input').val(),
+					offset: [$('#option-box-offset-x').val(), $('#option-box-offset-y').val(), $('#option-box-offset-z').val()],
+					dimensions: [$('#option-box-length-x').val(), $('#option-box-length-z').val()],
+					casing: {enabled: $('#option-box-encase').is(':checked'), caps: $('#option-box-encase-block-caps').val(), sides: $('#option-box-encase-block-window').val()},
+					scoreboard: $('#option-advanced-objectivename').val(),
+					signs: [],
+					hopper: $('#option-hopper-clock').is(":checked"),
+					svrsigns: $('#option-server-signs').is(":checked")
+				}
+
+				$('.sign-item').each(function(signIndex, signValue) {
+					settings.signs[settings.signs.length] = [];
+					var currentSign = {
+						lines: [],
+						bold: [],
+						italics: [],
+						underline: [],
+						txtcolor: [],
+						command: [],
+						destroy: false,
+						tog: false
+					};
+
+					$(signValue).children('.sign-input-line').each(function(signSubIndex, signSubValue) {
+						currentSign.lines[currentSign.lines.length] = $(signSubValue).val();
+					});
+					$(signValue).children('.sign-input-cmd').each(function(signSubIndex, signSubValue) {
+						currentSign.command[currentSign.command.length] = $(signSubValue).val();
+					});
+					$(signValue).children('.sign-input-style-italics').each(function(signSubIndex, signSubValue) {
+						currentSign.italics[currentSign.italics.length] = $(signSubValue).is(':checked');
+					});
+					$(signValue).children('.sign-input-style-bold').each(function(signSubIndex, signSubValue) {
+						currentSign.bold[currentSign.bold.length] = $(signSubValue).is(':checked');
+					});
+					$(signValue).children('.sign-input-style-underline').each(function(signSubIndex, signSubValue) {
+						currentSign.underline[currentSign.underline.length] = $(signSubValue).is(':checked');
+					});
+					$(signValue).children('.sign-input-color').each(function(signSubIndex, signSubValue) {
+						currentSign.txtcolor[currentSign.txtcolor.length] = $(signSubValue).val();
+					});
+
+					if ($(this).children('.sign-input-destroy').is(':checked')) {
+						currentSign.destroy = true;
+					}
+					if ($(this).children('.sign-input-activatetoggle').is(':checked')) {
+						currentSign.tog = true;
+					}
+
+					for (i = 0; i < currentSign.lines.length; i++) {
+						settings.signs[settings.signs.length-1][settings.signs[settings.signs.length-1].length] = {
+							txt: currentSign.lines[i],
+							clr: currentSign.txtcolor[i],
+							bold: currentSign.bold[i],
+							italics: currentSign.italics[i],
+							underline: currentSign.underline[i],
+							command: currentSign.command[i],
+						}
+						settings.signs[settings.signs.length-1][0].destroy = currentSign.destroy;
+						settings.signs[settings.signs.length-1][0].tog = currentSign.tog;
+					}
+				});
+
+				// var exportSettingsString = '';
+				// for (i = 0; i < setings.signs)
+
+				var outputTotalLen = 0;
+				$('.output-command').each(function() {
+					outputTotalLen += $(this).val().length;
+				});
+
+				var exportJSON = {
+					cmds: exportCommandsArray,
+					settings: settings,
+					len: outputTotalLen,
+				};
+
+				console.log("read below:");
+				console.log(exportJSON);
+
+				return JSON.stringify(exportJSON);
+			}
+
+			$('#manual-projects-button').click(function() {
+				$('#export-textarea').val(generateExportString());
+				$('#export-container').fadeIn(200);
+			});
+
+			$('#manual-projects-import').click(function() {
+				$('#import-container').fadeIn(200);
+			});
+
+			$('.page-fade').click(function() {
+				$(this).parent().fadeOut(350);
+			});
+
+			$('.exit').click(function() {
+				$(this).parent().parent().parent().fadeOut(350);
+			});
+
+			function predictCommandLength() {
+				// NOT CURRENTLY IN USE
+				var previousOutputCommand = $('#output-command').val();
+				generateCompactCommand();
+				var commandLength = 0;
+				$('.output-command').each(function() {
+					commandLength += $(this).val().length;
+				});
+				$('#output-command').val(previousOutputCommand);
+				return commandLength;
+			}
+
+			var signedOutHelpMessage = 'click on the Google "sign in" button, under "projects".';
+
+			$('#google-login-directions-dynamic').html(signedOutHelpMessage);
+			$('#google-login-directions-dynamic-import').html(signedOutHelpMessage);
+
+			function onSignIn(googleUser) {
+				profile = googleUser.getBasicProfile();
+				id_token = googleUser.getAuthResponse().id_token;
+
+				// Authenticate
+				$.get('tokensignin77c2.html?user_id=' + profile.getId() + '&id_token=' + id_token, function(data) {
+					importProjects(data);
+				});
+
+				$('#google-login-directions-dynamic').html('click on "save" under "projects".');
+				$('#google-login-directions-dynamic-import').html('click on a project to open under "projects."');
+
+				setTimeout(function() {
+					$('.sign-in-element').css('display', 'none');
+					$('.sign-out-element').css('display', 'inline-block');
+					$('#sign-in-image').attr('src', profile.getImageUrl());
+					$('#sign-in-username').html(profile.getName());
+					$('#sign-in-subcat-main').css('text-align', 'left');
+					$('.showifsignedin').css('display', 'inline-block');
+					$('.showifsignedin.center').css('display', 'block');
+				}, 800);
+			}
+
+			function signOut() {
+			    var auth2 = gapi.auth2.getAuthInstance();
+			    auth2.signOut().then(function () {});
+			    $('.sign-in-element').css('display', 'inline-block');
+				$('.sign-out-element').css('display', 'none');
+				$('#google-login-directions-dynamic').html(signedOutHelpMessage);
+				$('#google-login-directions-dynamic-import').html(signedOutHelpMessage);
+				$('#sign-in-subcat-main').css('text-align', 'center');
+				$('.showifsignedin').css('display', 'none');
+			}
+
+			var helpSelected = 'none';
+			$('#help-show-functions').click(function() {
+				if (helpSelected !== 'functions') {
+					$('.help-container').slideUp();
+					$('#help-built-in-functions').slideDown();
+					helpSelected = 'functions';
+				} else {
+					$('.help-container').slideUp();
+					helpSelected = 'none';
+				}
+			});
+
+			$('#help-show-how-to').click(function() {
+				if (helpSelected !== 'howto') {
+					$('.help-container').slideUp();
+					$('#help-how-to').slideDown();
+					helpSelected = 'howto';
+				} else {
+					$('.help-container').slideUp();
+					helpSelected = 'none';
+				}
+			});
+
+			$('#help-show-mcedit').click(function() {
+				if (helpSelected !== 'mcedit') {
+					$('.help-container').slideUp();
+					$('#help-mcedit').slideDown();
+					helpSelected = 'mcedit';
+				} else {
+					$('.help-container').slideUp();
+					helpSelected = 'none';
+				}
+			});
+
+			$('#help-show-others').click(function() {
+				if (helpSelected !== 'others') {
+					$('.help-container').slideUp();
+					$('#help-others').slideDown();
+					helpSelected = 'others';
+				} else {
+					$('.help-container').slideUp();
+					helpSelected = 'none';
+				}
+			});
+
+			$(document).ready(function() {
+
+				// possible colors
+				var stainedColors = ['white', 'orange', 'magenta', 'light_blue', 'yellow', 'lime', 'pink', 'gray', 'light_gray', 'cyan', 'purple', 'blue', 'brown', 'green', 'red', 'black'];
+
+				// Randomize the box case blocks upon page load
+				$('#option-box-encase-block-window').val(stainedColors[Math.round(Math.random() * 15)] + '_stained_glass');
+				$('#option-box-encase-block-caps').val(stainedColors[Math.round(Math.random() * 15)] + '_terracotta');
+				$('#option-advanced-objectivename').val(makeRandomStr(6));
+			});
+
+			$('#generate').click(function() {
+				// try {
+				generateCompactCommand();
+				// } catch(err) {
+				// 	console.log(err);
+				// 	console.log(err.lineNumber);
+				// 	$.post('php/cmdcombinererror.php', {
+				// 		errortext: err
+				// 	})
+				// 	// Doesn't worry about what cmdcombinererror.php returns, since it will tell them that
+				// 	// it has been reported if someone else has already had the error too.
+				// 	$('#output-errors').html('<i class="fa fa-exclamation-triangle"></i> There was an unnexpected error while generating the command! An error report has automatically been generated and sent to the server to notify MrGarretto.').slideDown(200);
+				// 	setTimeout(function() {
+				// 		$('#output-errors').slideUp(200);
+				// 	}, 6000);
+				// }
+			});
+
+			var globalBoxLength = 0;
+
+			function generateCompactCommand() {
+				var inputOffX = parseInt($('#option-box-offset-x').val());
+				var inputOffY = parseInt($('#option-box-offset-y').val());
+				var inputOffZ = parseInt($('#option-box-offset-z').val());
+
+				boxLengthX = parseInt($('#option-box-length-x').val());
+				boxLengthZ = parseInt($('#option-box-length-z').val());
+
+				if (parseInt($('#structure-orientation-input').val()) == 3)
+					inputOffX++;
+
+				fetchCommands();
+				getBoxDimensionInputs();
+				generateCoordinates(boxLengthX, boxLengthZ);
+				offsetCoordinates(inputOffX, inputOffY, inputOffZ, parseInt($('#structure-orientation-input').val()));
+				formatEscaping();
+				generateCasing($('#option-box-encase-block-window').val(), $('#option-box-encase-block-caps').val(), parseInt($('#structure-orientation-input').val()), inputOffX, inputOffY, inputOffZ);
+				generateRotatedCoordinates(parseInt($('#structure-orientation-input').val()));
+				setupSigns(parseInt($('#structure-orientation-input').val()), inputOffX, inputOffY, inputOffZ);
+				getCoordTags();
+				insertCoordTags();
+				setupPrevCoords();
+				createScoreObjAddCmds()
+				generateOutputCommand();
+			}
+
+			// Create the array for the commands along with their tags
+			allCommands = [];
+
+			function createScoreObjAddCmds() {
+				if (scoreboardObjInUse[0]) {
+					allInitCommands.splice(0, 0, {
+						cmd: 'scoreboard objectives add ' + inputScoreboard + '_I dummy',
+						tag: 'none'
+					});
+				}
+				if (scoreboardObjInUse[1]) {
+					allInitCommands.splice(0, 0, {
+						cmd: 'scoreboard objectives add ' + inputScoreboard + '_N dummy',
+						tag: 'none'
+					});
+				}
+				if (scoreboardObjInUse[2]) {
+					allInitCommands.splice(0, 0, {
+						cmd: 'scoreboard objectives add ' + inputScoreboard + '_A dummy',
+						tag: 'none'
+					}, {
+						cmd: 'summon armor_stand ~' + allCommands[0].posX + ' ~' + allCommands[0].posY + ' ~' + allCommands[0].posZ + ' {CustomName:TogAct,Marker:1,NoGravity:1,Invisible:1}',
+						tag: 'none'
+					});
+				}
+			}
+
+			function getCoordTags() {
+				coordTags = [];
+				for (i = 0; i < allCommands.length; i++) {
+					if (allCommands[i].tag == 'tagged') {
+						coordTags[coordTags.length] = {identifier: allCommands[i].tagid, loc: [allCommands[i].posX, allCommands[i].posY, allCommands[i].posZ]};
+					}
+				}
+			}
+
+			function insertCoordTags() {
+				for (i = 0; i < allCommands.length; i++) {
+					if (allCommands[i].cmd.indexOf('@TAG-') >= 0) {
+						for (c = 0; c < coordTags.length; c++) {
+							allCommands[i].cmd = allCommands[i].cmd.replace("@TAG-" + coordTags[c].identifier, ('~'+(coordTags[c].loc[0]-allCommands[i].posX)+' ~'+(coordTags[c].loc[1]-allCommands[i].posY)+' ~'+(coordTags[c].loc[2]-allCommands[i].posZ)));
+						}
+					}
+				}
+			}
+
+			function getBoxDimensionInputs() {
+				inputOffsetX = parseInt($('#option-box-offset-x').val());
+				inputOffsetY = parseInt($('#option-box-offset-y').val());
+				inputOffsetZ = parseInt($('#option-box-offset-z').val());
+				inputLimitX = boxLengthX;
+				inputLimitZ = boxLengthZ;
+			}
+
+			function ifSignsEnabled() {
+				$('.sign-item').each(function() {
+					return true;
+				});
+				return false;
+			}
+
+			$('#add-sign').click(function() {
+				addSign();
+			});
+
+			function addSign() {
+				var totalText = '';
+				totalText = totalText + "<div class='sign-item'><div class='sign-reorder'><i class='fa fa-caret-up sign-reorder-up'></i><i class='fa fa-caret-down sign-reorder-down'></i></div><input type='text' placeholder='Click Command 1' class='sign-input-cmd'><input type='text' placeholder='Click Command 2' class='sign-input-cmd'><input type='text' placeholder='Click Command 3' class='sign-input-cmd'><input type='text' placeholder='Click Command 4' class='sign-input-cmd sign-input-cmd-destroy'><br>";
+				for (i = 0; i < 4; i++) {
+					totalText = totalText + "<input type='text' placeholder='Line " + (i + 1) + "' class='sign-input-line'><select class='sign-input-color'><option value='black'>Black</option><option value='dark_blue'>Dark Blue</option><option value='dark_green'>Dark Green</option><option value='dark_aqua'>Dark Aqua</option><option value='dark_red'>Dark Red</option><option value='dark_purple'>Dark Purple</option><option value='gold'>Gold</option><option value='gray'>Gray</option><option value='dark_gray'>Dark Gray</option><option value='blue'>Blue</option><option value='green'>Green</option><option value='aqua'>Aqua</option><option value='red'>Red</option><option value='light_purple'>Light Purple</option><option value='yellow'>Yellow</option><option value='white'>White</option></select> <input type='checkbox' class='sign-input-style-italics'>Italics <input type='checkbox' class='sign-input-style-bold'>Bold <input type='checkbox' class='sign-input-style-underline'>Underline<br>";
+				}
+				totalText = totalText + "<input type='checkbox' class='sign-input-activatetoggle' style='display: none'><span style='display: none' class='sign-label-activatetoggle'>Activate/Deactivate Machine </span> <input type='checkbox' class='sign-input-destroy'><span class='sign-label-destroy'>Destroys Machine</span> <span class='remove-sign'>Remove Sign</span></div>";
+				$('#sign-container').append(totalText);
+			}
+
+			$(document).on('click', '.remove-sign', function() {
+				$(this).parent().remove();
+			});
+
+			function setupSigns(orientation, offsetX, offsetY, offsetZ) {
+				// Signs
+				// Get input data for each sign
+				var signLines = [];
+				var signLineIndex = 0;
+				$('.sign-item').each(function(signIndex, signValue) {
+					signLines[signLines.length] = [];
+					$(signValue).children('.sign-input-line').each(function(signSubIndex, signSubValue) {
+						signLines[signLines.length - 1][signLines[signLines.length - 1].length] = {lineText: $(signSubValue).val()};
+					});
+					signLineIndex = 0;
+					$(signValue).children('.sign-input-color').each(function(signSubIndex, signSubValue) {
+						signLines[signLines.length - 1][signLineIndex].lineColor = $(signSubValue).val();
+						signLineIndex += 1;
+					});
+					signLineIndex = 0;
+					$(signValue).children('.sign-input-style-italics').each(function(signSubIndex, signSubValue) {
+						signLines[signLines.length - 1][signLineIndex].lineItalic = $(signSubValue).is(':checked');
+						signLineIndex += 1;
+					});
+					signLineIndex = 0;
+					$(signValue).children('.sign-input-style-bold').each(function(signSubIndex, signSubValue) {
+						signLines[signLines.length - 1][signLineIndex].lineBold = $(signSubValue).is(':checked');
+						signLineIndex += 1;
+					});
+					signLineIndex = 0;
+					$(signValue).children('.sign-input-style-underline').each(function(signSubIndex, signSubValue) {
+						signLines[signLines.length - 1][signLineIndex].lineUnderlined = $(signSubValue).is(':checked');
+						signLineIndex += 1;
+					});
+					signLineIndex = 0;
+					$(signValue).children('.sign-input-cmd').each(function(signSubIndex, signSubValue) {
+						signLines[signLines.length - 1][signLineIndex].lineCommand = $(signSubValue).val().replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+						signLineIndex += 1;
+					});
+					
+					var destroyChecked = $(signValue).children('.sign-input-destroy').is(':checked');
+					var activateToggleChecked = $(signValue).children('.sign-input-activatetoggle').is(':checked');
+
+					if (destroyChecked) {
+						signLines[signLines.length - 1][3].lineCommand = 'DESTROYMACHINE';
+					}
+					if (activateToggleChecked) {
+						for (l = 0; l < 4; l++)
+							signLines[signLines.length - 1][l].lineCommand = 'TOGGLEACTIVE';
+					}
+
+				});
+
+				// Adding the signs to the box
+				var signJsonData = '';
+				var signHeightY = 0;
+				var signLineCommand = '';
+				var signOffset = {};
+				for (i = 0; i < signLines.length; i++) {
+					// Clear the sign json data to be used again
+					signJsonData = '';
+
+					// Figure out the sign's location
+					// Calculate what the height of the sign should be so that it is vertically centered
+					signHeightY = Math.ceil((getHighestY() - offsetY) / 2) - Math.floor(signLines.length / 2) + i - 1 + offsetY;
+					var signLoc = {};
+					var wallsignRotation = 4;
+					signLoc.xPos = 1;
+					signLoc.zPos = 0;
+
+					// Add offsets
+					signLoc.xPos += offsetX;
+					signLoc.zPos += offsetZ;
+
+					if (orientation == 2) {
+						signLoc.xPos *= -1;
+						signLoc.zPos *= -1;
+						wallsignRotation = 5;
+					} else if (orientation == 3) {
+						signLoc.zPos = [signLoc.xPos, signLoc.xPos = signLoc.zPos][0]; // Swap the X and Z values
+						signLoc.xPos *= -1;
+						wallsignRotation = 2;
+					} else if (orientation == 4) {
+						signLoc.zPos = [signLoc.xPos, signLoc.xPos = signLoc.zPos][0]; // Swap the Z and X values
+						signLoc.zPos *= -1;
+						wallsignRotation = 3
+					}
+
+					for (b = 0; b < signLines[i].length; b++) {
+						if (signLines[i][b].lineText.length >= 1 || (useServerSigns && signLines[i][b].lineCommand.length === 0)) {
+							// If a command is set for this line and there is also text
+							if (signLines[i][b].lineCommand.length >= 1) {
+								// Make the destroy command coordinates relative to the sign's coordinates!
+								signLineCommand = formatForClickevent(signJsonData, signLines, signLoc, signHeightY);
+							} else {
+								signLineCommand = '';
+							}
+
+							signJsonData = signJsonData + ',Text' + (b + 1) + ':"{\\"text\\":\\"' + signLines[i][b].lineText + '\\"';
+
+							if (signLines[i][b].lineColor !== 'black') {
+								signJsonData += ',\\"color\\":\\"' + signLines[i][b].lineColor + '\\"';
+							}
+
+							signJsonData += signLineCommand;
+
+							if (signLines[i][b].lineItalic == true) {
+								signJsonData = signJsonData + ',\\"italic\\":true';
+							}
+							if (signLines[i][b].lineBold == true) {
+								signJsonData = signJsonData + ',\\"bold\\":true';
+							}
+							if (signLines[i][b].lineUnderlined == true) {
+								signJsonData = signJsonData + ',\\"underlined\\":true';
+							}
+							signJsonData = signJsonData + '}"';
+						} else if (signLines[i][b].lineCommand.length >= 1) {
+							// If there is no text but there is a command set
+							signJsonData += formatForClickevent(signJsonData, signLines, signLoc, signHeightY);
+						}
+					}
+					signJsonData = signJsonData.replace(',', ''); // Remove the extra comma at the beginning
+					allInitCommands.splice(0, 0, {cmd: 'setblock ~' + (signLoc.xPos) + ' ~' + (signHeightY) + ' ~' + (signLoc.zPos) + ' wall_sign[facing=' + damageToDir(wallsignRotation) + ']{' + escapeQuotes(signJsonData, 1) + '}', tag: 'sign'});
+				}
+			}
+
+			function escapeQuotes(string, times) {
+				// times = How many times to escape (defaults to 1 if not set)
+				if (times === undefined) {
+					times = 1;
+				}
+
+				for (var i = 0; i < times; i++) {
+					string = string.replace(/\\/g, '\\\\');
+					string = string.replace(/"/g, '\\"');
+				}
+
+				return string;
+			}
+
+			function formatForClickevent(signJsonData, signLines, signLoc, signHeightY) {
+				var orientation = parseInt($('#structure-orientation-input').val());
+
+				var coordinates = [(getLowestX() - 2 - signLoc.xPos), (getLowestY() - 1 - signHeightY), (getLowestZ() - 1 - signLoc.zPos), (getHighestX() + 1 - signLoc.xPos), (getHighestY() + 1 - signHeightY), (getHighestZ() + 1 - signLoc.zPos)];
+
+				// Doesn't need to account for orientation because the rotation has already taken place on the command blocks by this point, so it doesn't need to calculate it independently
+				// The only exception is that it should decrease(?) the Z coordinates by 1 if the orientation is Z+ (3), because the box will automatically have 1 added to it if so, since the machine would be too close to the initial stack otherwise.
+
+				// if (orientation == 2) {
+				// 	coordinates[0] = -coordinates[0];
+				// 	coordinates[3] = -coordinates[3];
+				// } else if (orientation == 3) {
+				// 	// Switch X and Z
+				// 	coordinates[2] = [coordinates[0], coordinates[0] = coordinates[2]][0];
+				// 	coordinates[5] = [coordinates[3], coordinates[3] = coordinates[5]][0];
+				// 	// Negate X
+				// 	coordinates[0] = -coordinates[0];
+				// 	coordinates[3] = -coordinates[3];
+				// } else if (orientation == 4) {
+				// 	coordinates[2] = [coordinates[0], coordinates[0] = coordinates[2]][0];
+				// 	coordinates[5] = [coordinates[3], coordinates[3] = coordinates[5]][0];
+				// 	coordinates[2] = -coordinates[2];
+				// 	coordinates[5] = -coordinates[5];
+				// }
+
+				if (orientation == 3) {
+					coordinates[2]--;
+				}
+
+				var toggleActiveScore = $('#option-advanced-objectivename').val() + '_A';
+				if (signLines[i][b].lineText.length >= 1) {
+					// Has text and has a command
+					if (signLines[i][b].lineCommand == 'TOGGLEACTIVE') {
+						scoreboardObjInUse[2] = true;
+						if (b == 0) {
+							var clickeventCommand = ',\\"clickEvent\\":{\\"action\\":\\"run_command\\",\\"value\\":\\"' + ('scoreboard players add @e[type=armor_stand,name=TogAct,limit=1] ' + toggleActiveScore + ' 1') + '\\"}';
+						} else if (b == 1) {
+							var clickeventCommand = ',\\"clickEvent\\":{\\"action\\":\\"run_command\\",\\"value\\":\\"' + ('execute @e[scores={' + toggleActiveScore + '=1}] ~ ~ ~ data merge block ~ ~ ~ {auto:0}') + '\\"}';
+						} else if (b == 2) {
+							var clickeventCommand = ',\\"clickEvent\\":{\\"action\\":\\"run_command\\",\\"value\\":\\"' + ('execute @e[scores={' + toggleActiveScore + '=2}] ~ ~ ~ data merge block ~ ~ ~ {auto:1}') + '\\"}';
+						} else if (b == 3) {
+							var clickeventCommand = ',\\"clickEvent\\":{\\"action\\":\\"run_command\\",\\"value\\":\\"' + ('scoreboard players reset @e[scores={' + toggleActiveScore + '=2}] ' + toggleActiveScore) + '\\"}';
+						}
+					} else {
+						// Regular for having text and a command
+						var clickeventCommand = ',\\"clickEvent\\":{\\"action\\":\\"run_command\\",\\"value\\":\\"' + signLines[i][b].lineCommand.replace('DESTROYMACHINE', ('fill ~' + coordinates[0] + ' ~' + coordinates[1] + ' ~' + coordinates[2] + ' ~' + coordinates[3] + ' ~' + coordinates[4] + ' ~' + coordinates[5] + ' air')) + '\\"}';
+					}
+				} else {
+					// Doesn't have any text, but has a command
+					if (signLines[i][b].lineCommand == 'TOGGLEACTIVE') {
+						scoreboardObjInUse[2] = true;
+						if (b == 0) {
+							var clickeventCommand = ',Text' + (b + 1) + ':"{\\"text\\":\\"\\",\\"clickEvent\\":{\\"action\\":\\"run_command\\",\\"value\\":\\"' + ('scoreboard players add @e[type=armor_stand,name=TogAct,limit=1] ' + toggleActiveScore + ' 1') + '\\"}}"';
+						} else if (b == 1) {
+							var clickeventCommand = ',Text' + (b + 1) + ':"{\\"text\\":\\"\\",\\"clickEvent\\":{\\"action\\":\\"run_command\\",\\"value\\":\\"' + ('execute @e[scores={' + toggleActiveScore + '=1}] ~ ~ ~ data merge block ~ ~ ~ {auto:0}') + '\\"}}"';
+						} else if (b == 2) {
+							var clickeventCommand = ',Text' + (b + 1) + ':"{\\"text\\":\\"\\",\\"clickEvent\\":{\\"action\\":\\"run_command\\",\\"value\\":\\"' + ('execute @e[scores={' + toggleActiveScore + '=2}] ~ ~ ~ data merge block ~ ~ ~ {auto:1}') + '\\"}}"';
+						} else if (b == 3) {
+							var clickeventCommand = ',Text' + (b + 1) + ':"{\\"text\\":\\"\\",\\"clickEvent\\":{\\"action\\":\\"run_command\\",\\"value\\":\\"' + ('scoreboard players reset @e[scores={' + toggleActiveScore + '=2}] ' + toggleActiveScore) + '\\"}}"';
+						}
+					} else {
+						var clickeventCommand = ',Text' + (b + 1) + ':"{\\"text\\":\\"\\",\\"clickEvent\\":{\\"action\\":\\"run_command\\",\\"value\\":\\"' + signLines[i][b].lineCommand.replace('DESTROYMACHINE', ('fill ~' + coordinates[0] + ' ~' + coordinates[1] + ' ~' + coordinates[2] + ' ~' + coordinates[3] + ' ~' + coordinates[4] + ' ~' + coordinates[5] + ' air')) + '\\"}}"';
+					}
+				}
+				return clickeventCommand;
+			}
+
+			function getHighestY() {
+				var highestVal = -999;
+				for (g = 0; g < allCommands.length; g++) {
+					if (allCommands[g].posY > highestVal) {
+						highestVal = allCommands[g].posY;
+					}
+				}
+				return highestVal;
+			}
+
+			function getLowestY() {
+				var lowestVal = 999;
+				for (g = 0; g < allCommands.length; g++) {
+					if (allCommands[g].posY < lowestVal) {
+						lowestVal = allCommands[g].posY;
+					}
+				}
+				return lowestVal;
+			}
+
+			function getHighestX() {
+				var highestVal = -999;
+				for (g = 0; g < allCommands.length; g++) {
+					if (allCommands[g].posX > highestVal) {
+						highestVal = allCommands[g].posX;
+					}
+				}
+				return highestVal;
+			}
+
+			function getLowestX() {
+				var highestVal = 999;
+				for (g = 0; g < allCommands.length; g++) {
+					if (allCommands[g].posX < highestVal) {
+						highestVal = allCommands[g].posX;
+					}
+				}
+				return highestVal;
+			}
+
+			function getHighestZ() {
+				var highestVal = -999;
+				for (g = 0; g < allCommands.length; g++) {
+					if (allCommands[g].posZ > highestVal) {
+						highestVal = allCommands[g].posZ;
+					}
+				}
+				return highestVal;
+			}
+
+			function getLowestZ() {
+				var highestVal = 999;
+				for (g = 0; g < allCommands.length; g++) {
+					if (allCommands[g].posZ < highestVal) {
+						highestVal = allCommands[g].posZ;
+					}
+				}
+				return highestVal;
+			}
+
+			$(document).on('click', '.sign-reorder-up', function() {
+				var current = $(this).parent().parent();
+				current.prev().before(current);
+			});
+
+			$(document).on('click', '.sign-reorder-down', function() {
+				var current = $(this).parent().parent();
+				current.next().after(current);
+			});
+
+			$(document).on('change', '.sign-input-destroy', function() {
+				if ($(this).is(':checked')) {
+					$(this).siblings('.sign-input-cmd-destroy').css('display', 'none');
+					$(this).siblings('.sign-input-activatetoggle').attr('disabled', true);
+					$(this).siblings('.sign-label-activatetoggle').css('opacity', '.50');
+				} else {
+					$(this).siblings('.sign-input-cmd-destroy').css('display', 'inline');
+					$(this).siblings('.sign-input-activatetoggle').removeAttr('disabled');
+					$(this).siblings('.sign-label-activatetoggle').css('opacity', '1');
+				}
+			});
+
+			$(document).on('change', '.sign-input-activatetoggle', function() {
+				if ($(this).is(':checked')) {
+					$(this).siblings('.sign-input-cmd').css('display', 'none');
+					$(this).siblings('.sign-input-destroy').attr('disabled', true);
+					$(this).siblings('.sign-label-destroy').css('opacity', '.50');
+				} else {
+					$(this).siblings('.sign-input-cmd').css('display', 'inline');
+					$(this).siblings('.sign-input-destroy').removeAttr('disabled');
+					$(this).siblings('.sign-label-destroy').css('opacity', '1');
+				}
+			});
+
+			function getDelimiter(commandString) {
+				if ($('#import-mcedit').is(':checked')) {
+					if (commandString.indexOf('_*&amp;*_') >= 0) {
+						return '_*&amp;*_';
+					} else {
+						return '_*&*_';
+					}
+				} else {
+					return '\n';
+				}
+			}
+			
+			function splitCommands(commandString) {
+				var commandInputArray = commandString.split(getDelimiter(commandString));
+				return commandInputArray;
+			}
+
+			function setupPrevCoords() {
+				for (i = 0; i < allCommands.length; i++) {
+					if (allCommands[i].cmd.indexOf('@prev@') >= 0) {
+						allCommands[i].cmd = allCommands[i].cmd.replace(/@prev@/g, ('~' + (allCommands[i-1].posX - allCommands[i].posX) + ' ~' + (allCommands[i-1].posY - allCommands[i].posY) + ' ~' + (allCommands[i-1].posZ - allCommands[i].posZ)));
+					}
+				}
+			}
+
+			function removeBlankCommands() {
+				for (i = 0; i < allCommands.length; i++) {
+					if (allCommands[i].cmd.length <= 0) {
+						allCommands.splice(i, 1);
+					}
+				}
+			}
+
+			function fetchCommands() {
+				allCommands = [];
+				allInitCommands = [];
+				inputScoreboard = $('#option-advanced-objectivename').val();
+				// Take the entire command-string and separate each command by \n (each new line)
+				var commandInputArray = splitCommands($('#input-commands').val());
+
+				// remove empty spaces at the end of each line
+				for (var i = 0; i < commandInputArray.length; i++) {
+
+					commandInputArray[i] = commandInputArray[i].trimEnd();
+
+				}
+
+				// Give each command its necessary tag if needed (init, if, then)
+				floorCraftingCount = 0;
+				var floorCraftingReturnArr = [];
+
+				// Multi-line command modifiers
+				var multilineContinue = true;
+				var multilineIndex = 0;
+				var multilineModifiers = '';
+				for (i = 0; i < commandInputArray.length; i++) {
+					if (commandInputArray[i].substring(0, 2) == '/*') {
+						multilineModifiers = commandInputArray[i].substring(2, commandInputArray[i].length);
+						commandInputArray.splice(i, 1);
+						multilineIndex = i-1;
+						while (multilineContinue == true) {
+							multilineIndex++;
+							if (commandInputArray[multilineIndex] == undefined) {
+								multilineContinue = false;
+							} else {
+								if (!(commandInputArray[multilineIndex].substring(0, 2).indexOf('#') >= 0  || commandInputArray[multilineIndex].length <= 0 || commandInputArray[multilineIndex] == ' ')) {
+									if (commandInputArray[multilineIndex] == '*/') {
+										multilineContinue = false;
+										commandInputArray.splice(multilineIndex, 1);
+									} else {
+										commandInputArray[multilineIndex] = multilineModifiers + commandInputArray[multilineIndex];
+									}
+								}
+							}
+						}
+					}
+				}
+
+				for (i = 0; i < commandInputArray.length; i++) {
+					if (commandInputArray[i].substring(0, 5) == 'INIT:') {
+						// Init commands go in a different array!
+						allInitCommands[allInitCommands.length] = {cmd: commandInputArray[i].substring(5, commandInputArray[i].length), tag: 'init'};
+					} else if (commandInputArray[i].substring(0, 11).indexOf('IF:') >= 0) {
+						// IF will be optional, and won't really do anything other than help read through the source commands
+						allCommands[allCommands.length] = {cmd: commandInputArray[i].replace('IF:', ''), tag: 'if'};
+
+					} else if (commandInputArray[i].substring(0, 11).indexOf('DO:') >= 0) {
+						// DO will simply make the command block conditional (add 8 to the damage value). Since it will work that way, if 1 DO command fails, the rest won't run.
+						allCommands[allCommands.length] = {cmd: commandInputArray[i].replace('DO:', ''), tag: 'do'};
+
+					} else if (commandInputArray[i].substring(0, 13).indexOf('COND:') >= 0) {
+						// DO will simply make the command block conditional (add 8 to the damage value). Since it will work that way, if 1 DO command fails, the rest won't run.
+						allCommands[allCommands.length] = {cmd: commandInputArray[i].replace('COND:', ''), tag: 'do'};
+
+					} else if (commandInputArray[i].indexOf('@prev@') >= 0) {
+						// When a command includes '@prev', it will replace '@prev' with the relative coordinates of the previous command block.
+						allCommands[allCommands.length] = {cmd: commandInputArray[i], tag: 'prev'};
+
+					} else if (commandInputArray[i].substring(0, 12).indexOf('TAG#') >= 0) {
+						// When a command starts with 'TAG#', it will track the number after it.
+						allCommands[allCommands.length] = {cmd: commandInputArray[i].substring((commandInputArray[i].indexOf(':') + 1), commandInputArray[i].length), tag: 'tagged', tagid: commandInputArray[i].substring(4, commandInputArray[i].indexOf(':'))};
+						
+					} else if (commandInputArray[i].substring(0, 2).indexOf('#') >= 0  || commandInputArray[i].length <= 0 || commandInputArray[i] == ' ') {
+						// Don't do anything since it is a comment or an empty line
+					} else if (commandInputArray[i].substring(0, 15).indexOf('FloorCrafting:') >= 0) {
+						// Generate the commands for the floorcrafting
+						floorCraftingReturn = generateFloorCrafting(commandInputArray[i]);
+						for (r = 0; r < floorCraftingReturn.reg.length; r++) {
+							allCommands[allCommands.length] = floorCraftingReturn.reg[r];
+						}
+						for (r = 0; r < floorCraftingReturn.init.length; r++) {
+							allInitCommands[allInitCommands.length] = floorCraftingReturn.init[r];
+						}
+					} else {
+						allCommands[allCommands.length] = {cmd: commandInputArray[i], tag: 'none'};
+					}
+				}
+
+				// Loop again and find any commands with I: R: or NA: or NT: (impulse command blocks, repeating command blocks, and 'not auto')
+				for (i = 0; i < allCommands.length; i++) {
+					// No Auto
+					if (allCommands[i].cmd.substring(0, 13).indexOf('NA:') >= 0) {
+						allCommands[i].auto = false;
+						allCommands[i].cmd = allCommands[i].cmd.replace('NA:', '');
+					} else {
+						allCommands[i].auto = true;
+					}
+					if (allCommands[i].cmd.substring(0, 13).indexOf('NT:') >= 0) {
+						allCommands[i].trackoutput = 'TrackOutput:0,';
+						allCommands[i].cmd = allCommands[i].cmd.replace('NT:', '');
+					} else {
+						allCommands[i].trackoutput = '';
+					}
+					allCommands[i].inputcmdblock = 'default';
+					// Impulse command block
+					if (allCommands[i].cmd.substring(0, 13).indexOf('I:') >= 0) {
+						allCommands[i].inputcmdblock = 'impulse';
+						allCommands[i].cmd = allCommands[i].cmd.replace('I:', '');
+					}
+					if (allCommands[i].cmd.substring(0, 13).indexOf('R:') >= 0) {
+						allCommands[i].inputcmdblock = 'repeating';
+						allCommands[i].cmd = allCommands[i].cmd.replace('R:', '');
+					}
+				}
+
+				allInitCommands.reverse();
+				// NBT in selectors workaround isn't needed any more in 1.13 since it is natively supported now
+				// for (i = 0; i < allCommands.length; i++) {
+				// 	nbtInSelectors(allCommands[i].cmd);
+				// }
+				if (useHopperClock)
+					allCommands.splice(0, 0, {cmd:"HOPPER1Placeholder"}, {cmd:"HOPPER2Placeholder"}, {cmd:"HOPPER3Placeholder"});
+
+			}
+
+			// floorCraftingScoreboard = makeRandomStr(5) + '_I';
+			floorCraftingCount = 0;
+			floorCraftingCurIndex = 1;
+
+			function makeRandomStr(strlength) {
+			    var text = "";
+			    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+			    for (var i=0; i < strlength; i++) {
+			    	text += possible.charAt(Math.floor(Math.random() * possible.length));
+			    }
+
+			    return text;
+			}
+
+			function generateFloorCrafting(floorCraftingCommand) {
+				var floorCraft = [];
+				floorCraftingCommand = floorCraftingCommand + '  ';
+
+				var startIndex = floorCraftingCurIndex;
+
+				var floorCraftingCommandArr = [];
+				var floorCraftingINITArr = [];
+
+				var floorCraftingArguments = [];
+				var prevMarker = 0;
+				for (f = 0; f < floorCraftingCommand.length - 1; f++) {
+					if (checkBrackets(floorCraftingCommand.substring(0, f + 1)) == 0 && floorCraftingCommand.substring(f, f + 1) == ' ') {
+						floorCraftingArguments.push(floorCraftingCommand.substring(prevMarker, f));
+						prevMarker = f + 1;
+					}
+				}
+
+				floorCraftingArguments.splice(0, 1);
+
+				// Retrieve the (optional) scoreboard name argument then remove it from the array (Not in use anymore since it is now definable in the options at the top of the page)
+				// var inputScoreboard = '';
+				// if (floorCraftingArguments.length % 3 !== 0) {
+				// 	// If there is 1 or 2 extra arguments at the end
+				// 	inputScoreboard = floorCraftingArguments[floorCraftingArguments.length - 1];
+				// 	floorCraftingArguments.splice(floorCraftingArguments.length-2, 1);
+				// 	floorCraftingCount = 0;
+				// }
+				// if (inputScoreboard.length <= 0) {
+				// 	inputScoreboard = floorCraftingScoreboard;
+				// }
+
+				scoreboardObjInUse[0] = true;
+
+				floorCraftingScoreboard = inputScoreboard + '_I';
+
+				// if (floorCraftingCount <= 0) {
+				// 	floorCraftingINITArr[floorCraftingINITArr.length] = {cmd: 'scoreboard objectives add ' + floorCraftingScoreboard + ' dummy', tag: 'init'};
+				// }
+				
+				// At this point, the array only consists of the actual arguments
+				var isResult = false;
+				for (f = 0; f < floorCraftingArguments.length; f += 3) {
+					isResult = false;
+					if (floorCraftingArguments[f].substring(0, 4) == 'RES:') {
+						isResult = true;
+					}
+					floorCraft.push({
+						item: floorCraftingArguments[f].replace('RES:', ''),
+						damage: floorCraftingArguments[f+1],
+						nbt: floorCraftingArguments[f+2],
+						isresult: isResult
+					});
+				}
+
+				// At this point, the 'floorCraft' array holds objects of each item and it's settings
+				var currentDamage = '';
+				var currentNBT = '';
+				var executeSelector = '';
+				var oneIngDoneRad = '';
+
+				for (f = 0; f < floorCraft.length; f++) {
+					if (!floorCraft[f].isresult) {
+						// Isn't a result item
+						currentDamage = '';
+						currentNBT = '';
+						if (floorCraft[f].damage !== '0')
+							currentDamage = ',Damage:' + floorCraft[f].damage + 's';
+						if (floorCraft[f].nbt !== '{}')
+							currentNBT = ',tag:' + floorCraft[f].nbt;
+						floorCraftingCommandArr[floorCraftingCommandArr.length] = {cmd: 'scoreboard players set @e ' + floorCraftingScoreboard + ' ' + floorCraftingCurIndex + ' {item:{id:minecraft:' + floorCraft[f].item + currentDamage + currentNBT + '},OnGround:1b}', tag: 'none'};
+						executeSelector = executeSelector + 'execute @e[scores={' + floorCraftingScoreboard + '=' + floorCraftingCurIndex + '}' + oneIngDoneRad + '] ~ ~ ~ ';
+						oneIngDoneRad = ',distance=..1';
+						floorCraftingCurIndex++;
+					}
+				}
+
+				for (f = 0; f < floorCraft.length; f++) {
+					if (floorCraft[f].isresult) {
+						// Is a result item
+						currentDamage = '';
+						currentNBT = '';
+						if (floorCraft[f].damage !== '0')
+							currentDamage = ',Damage:' + floorCraft[f].damage;
+						if (floorCraft[f].nbt !== '{}')
+							currentNBT = ',tag:' + floorCraft[f].nbt;
+						floorCraftingCommandArr[floorCraftingCommandArr.length] = {cmd: executeSelector + 'summon item ~ ~0.5 ~ {item:{id:minecraft:' + floorCraft[f].item + currentDamage + currentNBT + ',Count:1}}', tag: 'none'};
+						floorCraftingCommandArr[floorCraftingCommandArr.length] = {cmd: executeSelector + 'kill @e[type=item,distance=..3,scores={' + floorCraftingScoreboard + '=' + startIndex + '..' + floorCraftingCurIndex + '}]', tag: 'none'};
+					}
+				}
+
+				floorCraftingCount += 1;
+
+				return {reg: floorCraftingCommandArr, init: floorCraftingINITArr};
+			}
+
+			function formatEscaping() {
+				for (i = 0; i < allCommands.length; i++) {
+					allCommands[i].cmd = allCommands[i].cmd.replace(/\\/g, '\\\\');
+					allCommands[i].cmd = allCommands[i].cmd.replace(/"/g, '\\"');
+					allCommands[i].cmd = allCommands[i].cmd.replace(/\\/g, '\\\\');
+					allCommands[i].cmd = allCommands[i].cmd.replace(/"/g, '\\"');
+				}
+				for (i = 0; i < allInitCommands.length; i++) {
+					allInitCommands[i].cmd = allInitCommands[i].cmd.replace(/\\/g, '\\\\');
+					allInitCommands[i].cmd = allInitCommands[i].cmd.replace(/"/g, '\\"');
+				}
+			}
+
+			function calculateBoxEdge(side, maxOrMin) {
+				var size = 0;
+				predictAmountOfCmds = allCommands.length;
+				if (side == 'length') {
+					// Get size (no offsets yet)
+					size = boxLengthX;
+					if (predictAmountOfCmds < size) {
+						size = predictAmountOfCmds;
+					}
+
+					// Convert size to min and max coordinates
+					if (maxOrMin == 'min') {
+						return 2;
+					} else {
+						return 2 + size;
+					}
+				} else if (side == 'width') {
+					// Get size (no offsets yet)
+					size = boxLengthZ;
+					if (predictAmountOfCmds / boxLengthX < size) {
+						size = Math.ceil(predictAmountOfCmds / boxLengthX);
+					}
+
+					// Convert size to min and max coordinates
+					if (maxOrMin == 'min') {
+						if (size % 2 == 0) {
+							size -= 1;
+						}
+						return -Math.floor(size / 2);
+					} else {
+						return Math.floor(size / 2);
+					}
+				} else if (side == 'height') {
+					// Get size (no offsets yet)
+					size = 999;
+					if ((predictAmountOfCmds - 1) / boxLengthX < size) {
+						size = Math.floor((predictAmountOfCmds - 1) / boxLengthX / boxLengthZ);
+					}
+
+					// Convert size to min and max coordinates
+					if (maxOrMin == 'min') {
+						return -2;
+					} else {
+						return size - 2;
+					}
+				}
+			}
+
+			function addDataIfNone(blockId) {
+
+				// this function is no longer used at all since the data values arent used any more
+
+				if (blockId.indexOf(' ') <= -1) {
+					return blockId + ' 0';
+				} else {
+					return blockId;
+				}
+			}
+
+			function rotateCaseNegate(axis) {
+				if (axis == 'x') {
+					caseSides.min[0] *= -1;
+					caseSides.max[0] *= -1;
+					caseCaps.min[0] *= -1;
+					caseCaps.max[0] *= -1;
+				} else {
+					caseSides.min[2] *= -1;
+					caseSides.max[2] *= -1;
+					caseCaps.min[2] *= -1;
+					caseCaps.max[2] *= -1;
+				}
+			}
+
+			function rotateCaseSwap() {
+				tempCaseCoords.tempCaseSides = [caseSides.min[0], caseSides.min[1], caseSides.min[2], caseSides.max[0], caseSides.max[1], caseSides.max[2]];
+				tempCaseCoords.tempCaseCaps = [caseCaps.min[0], caseCaps.min[1], caseCaps.min[2], caseCaps.max[0], caseCaps.max[1], caseCaps.max[2]];
+				// Casesides min swapping
+				caseSides.min[0] = tempCaseCoords.tempCaseSides[2];
+				caseSides.min[2] = tempCaseCoords.tempCaseSides[0];
+				// Casesides max swapping
+				caseSides.max[0] = tempCaseCoords.tempCaseSides[5];
+				caseSides.max[2] = tempCaseCoords.tempCaseSides[3];
+
+				// Casecaps min swapping
+				caseCaps.min[0] = tempCaseCoords.tempCaseCaps[2];
+				caseCaps.min[2] = tempCaseCoords.tempCaseCaps[0];
+				// Casecaps max swapping
+				caseCaps.max[0] = tempCaseCoords.tempCaseCaps[5];
+				caseCaps.max[2] = tempCaseCoords.tempCaseCaps[3];
+			}
+
+			// Declare these 3 variables globally
+			caseSides = {};
+			caseCaps = {};
+			tempCaseCoords = {};
+
+			function generateCasing(sides, caps, orientation, offsetX, offsetY, offsetZ) {
+				if ($('#option-box-encase').is(':checked') == false) {
+					return;
+				}
+				// First, get the min and max values for the casing
+				caseSides = {min:[calculateBoxEdge('length', 'min') + offsetX, calculateBoxEdge('height', 'min') + offsetY, (calculateBoxEdge('width', 'min') - 1 + offsetZ)], max:[(calculateBoxEdge('length', 'max') + 1 + offsetX), calculateBoxEdge('height', 'max') + offsetY, (calculateBoxEdge('width', 'max') + 1 + offsetZ)]};
+
+				caseCaps = {min:[calculateBoxEdge('length', 'min') + offsetX, (calculateBoxEdge('height', 'min') - 1 + offsetY), (calculateBoxEdge('width', 'min') - 1 + offsetZ)], max:[(calculateBoxEdge('length', 'max') + 1 + offsetX), (calculateBoxEdge('height', 'max') + 1 + offsetY), (calculateBoxEdge('width', 'max') + 1 + offsetZ)]};
+
+				// Rotation based on input orientation
+				tempCaseCoords = {};
+				if (orientation == 2) {
+					rotateCaseNegate('x');
+					rotateCaseNegate('z');
+				} else if (orientation == 3) {
+					rotateCaseSwap();
+					rotateCaseNegate('x');
+				} else if (orientation == 4) {
+					rotateCaseSwap();
+					rotateCaseNegate('z');
+				}
+
+				// Fills in the sides of the box (usually glass)
+				allInitCommands[allInitCommands.length] = {cmd: ('fill ~' + caseSides.min[0] + ' ~' + caseSides.min[1] + ' ~' + caseSides.min[2] + ' ~' + caseSides.max[0] + ' ~' + caseSides.max[1] + ' ~' + caseSides.max[2] + ' ' + sides + ' replace ' + caps.split(' ')[0]), tag: 'init'};
+
+				// Fills in the top and bottom caps of the box (stained clay by default)
+				allInitCommands[allInitCommands.length] = {cmd: ('fill ~' + caseCaps.min[0] + ' ~' + caseCaps.min[1] + ' ~' + caseCaps.min[2] + ' ~' + caseCaps.max[0] + ' ~' + caseCaps.max[1] + ' ~' + caseCaps.max[2] + ' ' + caps + ' hollow'), tag: 'init'};
+
+				// .splice(1, 0, 
+			}
+
+			function generateCoordinates(maxLength, maxWidth) {
+				// maxLength is the maximum amount of command blocks along the X axis. maxWidth is how far across the Z axis before it goes upwards.
+				var condReady = false;
+				var condOutOfBounds = false;
+				var maxLengthFork = boxLengthX;
+				maxWidth -= 1;
+
+				var currentX = 0;
+				var currentY = 0;
+				var currentZ = 0;
+
+				if (boxLengthX < 4)
+					boxLengthX = 4;
+
+				$('#output-notifications').hide();
+
+				while (!condReady || condOutOfBounds) {
+					currentX = 0;
+					currentY = 0;
+					currentZ = 0;
+
+					maxLengthFork = boxLengthX - 1;
+
+					for (i = 0; i < allCommands.length; i++) {
+						if (allCommands[i].tag !== 'init') {
+							if ((!useHopperClock && i == 0) || (useHopperClock && i == 3)) {
+								// Make the first command be a repeating command block
+								allCommands[i].repeating = true;
+							}
+							if (useHopperClock && i == 0) {
+								// The first 2 command blocks should be hoppers instead.
+								allCommands[i].tag = 'hopper1';
+							}
+							if (useHopperClock && i == 1) {
+								// The first 2 command blocks should be hoppers instead.
+								allCommands[i].tag = 'hopper2';
+							}
+							if (useHopperClock && i == 2) {
+								// The first 2 command blocks should be hoppers instead.
+								allCommands[i].tag = 'hopper3';
+							}
+
+							allCommands[i].posX = currentX;
+							allCommands[i].posY = currentY;
+							allCommands[i].posZ = currentZ;
+
+							// Calculate the direction that it should be facing.
+							if (currentZ % 2 == 0 && currentY % 2 == 0 || currentZ % 2 !== 0 && currentY % 2 !== 0) {
+								// All even Z rows on the even Y heights
+								allCommands[i].direction = 'east';
+								currentX += 1;
+							}
+							if (currentZ % 2 == 0 && currentY % 2 !== 0 || currentZ % 2 !== 0 && currentY % 2 == 0) {
+								// All even Z rows on the odd Y heights
+								allCommands[i].direction = 'west';
+								currentX -= 1;
+							}
+
+							if (currentX < 0) {
+								if (currentY % 2 == 0) {
+									allCommands[i].direction = 'south';
+									currentZ += 1;
+								} else {
+									allCommands[i].direction = 'north';
+									currentZ -= 1;
+								}
+								
+								currentX = 0;
+							}
+
+							if (currentX > maxLengthFork) {
+								// When it reaches the max length (X), it should go up on the Z axis.
+								if (currentY % 2 == 0) {
+									allCommands[i].direction = 'south';
+									currentZ += 1;
+								} else {
+									allCommands[i].direction = 'north';
+									currentZ -= 1;
+								}
+
+								currentX -= 1;
+							}
+
+							if (currentZ > maxWidth) {
+								// When it reaches the max width (Z), it should go up on the Y axis.
+								allCommands[i].direction = 'up';
+
+								currentY += 1;
+								currentZ -= 1;
+							}
+
+							if (currentZ < 0) {
+								// When it is on an odd Y coordinate, it will go up once the Z value is below 0.
+								allCommands[i].direction = 'up';
+
+								currentY += 1;
+								currentZ = 0;
+							}
+						} else {
+							// If it's an init command, it doesn't need a direction, but it should have all coordinates set to 0 to prevent errors
+							allCommands[i].posX = 0;
+							allCommands[i].posY = 0;
+							allCommands[i].posZ = 0;
+						}
+					}
+
+					// // Check if the conditional chains are good
+					// for (i = 1; i < allCommands.length; i++) {
+					// 	if (allCommands[i-1].tag!='do' && allCommands[i].tag=='do' && allCommands[i-1].tag!=='init' && allCommands[i].direction!=allCommands[i-1].direction) {
+					// 		allCommands.splice(i-1, 0, {cmd:'',tag:'none'});
+					// 		i++;
+					// 	}
+					// }
+					// condReady = true;
+					// for (i = 1; i < allCommands.length; i++) {
+					// 	if (allCommands[i-1].tag!=='do' && allCommands[i].tag=='do' && allCommands[i-1].tag!=='init' && allCommands[i].direction!=allCommands[i-1].direction)
+					// 		condReady = false;
+					// }
+
+					// if (condReady) {
+					// 	condOutOfBounds = false;
+					// 	for (i = 1; i < allCommands.length; i++) {
+					// 		if (allCommands[i-1].tag=='do' && allCommands[i].tag=='do' && allCommands[i-1].direction!=allCommands[i].direction) {
+					// 			condOutOfBounds = true;
+					// 			boxLengthX++;
+					// 		}
+					// 	}
+					// }
+
+					condReady = true;
+					condOutOfBounds = false;
+
+				}
+				if (condOutOfBounds) {
+					$('#output-notifications').show().html('The box length was automatically increased in order to keep the conditional chain intact.');
+				}
+			}
+
+			function damageToDir(damage) {
+
+				// new function that converts old damage values into direction (word)
+
+				switch(damage) {
+					case 0:
+						newDir = 'down';
+						break;
+					case 1:
+						newDir = 'up';
+						break;
+					case 2:
+						newDir = 'north';
+						break;
+					case 3:
+						newDir = 'south';
+						break;
+					case 4:
+						newDir = 'west';
+						break;
+					case 4:
+						newDir = 'east';
+						break;
+				}
+
+				return newDir;
+			}
+
+			// dirToDamage is not used any more
+			function dirToDamage(direction, isConditional) {
+
+				console.log('A deprecated function was used even though it shouldnt be! Tell MrGarretto!');
+
+				var damageDir = 0;
+				switch(direction) {
+					case 'down':
+						damageDir = 0;
+						break;
+					case 'up':
+						damageDir = 1;
+						break;
+					case 'north':
+						damageDir = 2;
+						break;
+					case 'south':
+						damageDir = 3;
+						break;
+					case 'west':
+						damageDir = 4;
+						break;
+					case 'east':
+						damageDir = 5;
+						break;
+				}
+
+				// To make it a condition cmdblock, it should have 8 added to its damage.
+				if (isConditional == true) {
+					damageDir += 8;
+				}
+
+				return damageDir;
+			}
+
+			function dirToDirTag(direction, isConditional) {
+
+				if (isConditional) {
+					return '[facing=' + direction + ',conditional=true]';
+				} else {
+					return '[facing=' + direction + ']';
+				}
+
+			}
+
+			function tagConditionals() {
+				// Returns 'true' if the command index specified is going to be a conditional block
+				for (i = 0; i < allCommands.length; i++) {
+					if (allCommands[i].tag == 'do') {
+						allCommands[i].isCond = true;
+					}
+				}
+			}
+
+			function generateBrackets() {
+				var bracketString = '';
+				for (i = 0; i < allCommands.length + allInitCommands.length; i++) {
+					bracketString += '}]';
+				}
+				return bracketString;
+			}
+
+			var useBlockdata = true;
+
+			function optionBlockdataChange() {
+				useBlockdata = !useBlockdata;
+			}
+
+			function generateOutputCommand() {
+				var initCmdString = '';
+				var typeString = '';
+				tagConditionals();
+				var finalInitCmdArray = [];
+				var doNormalProcedure = true;
+				var autoString = '';
+
+				for (var i = 0; i < allCommands.length; i++) {
+					doNormalProcedure = true;
+					if (allCommands[i].tag == 'hopper1') {
+						// This item is the first hopper, which should hold the item from the start.
+						doNormalProcedure = false;
+						finalInitCmdArray[finalInitCmdArray.length] = ',{id:command_block_minecart,Command:"setblock ~' + allCommands[i].posX + ' ~' + allCommands[i].posY + ' ~' + allCommands[i].posZ + ' hopper' + dirToDirTag(fixDirForOrientation("east", parseInt($('#structure-orientation-input').val())), false) + ' replace {Items:[{id:stone,Count:1}]}"}';
+
+					} else if (allCommands[i].tag == 'hopper2') {
+						allCommands[i].direction == 'west';
+						// This item is the first hopper, which should hold the item from the start.
+						doNormalProcedure = false;
+						finalInitCmdArray[finalInitCmdArray.length] = ',{id:command_block_minecart,Command:"setblock ~' + allCommands[i].posX + ' ~' + allCommands[i].posY + ' ~' + allCommands[i].posZ + ' hopper' + dirToDirTag(fixDirForOrientation("west", parseInt($('#structure-orientation-input').val())), false) + '"}';
+
+					} else if (allCommands[i].tag == 'hopper3') {
+						allCommands[i].direction == 'east';
+						// This item is the first hopper, which should hold the item from the start.
+						doNormalProcedure = false;
+						finalInitCmdArray[finalInitCmdArray.length] = ',{id:command_block_minecart,Command:"setblock ~' + allCommands[i].posX + ' ~' + allCommands[i].posY + ' ~' + allCommands[i].posZ + ' unpowered_comparator' + dirToDirTag(fixDirForOrientation("east", parseInt($('#structure-orientation-input').val()))) + '"}';
+
+					} else {
+						if (allCommands[i].repeating == true) {
+							if (useHopperClock) {
+								// Using a hopper clock instead, so it should be an impulse (regular) command block
+								typeString = '';
+							} else {
+								// Normal, 20hz repeat clock
+								typeString = 'repeating_';
+							}
+						} else {
+							typeString = 'chain_';
+						}
+						if (allCommands[i].inputcmdblock == 'impulse') {
+							typeString = '';
+						}
+						if (allCommands[i].inputcmdblock == 'repeating') {
+							typeString = 'repeating_';
+						}
+					}
+
+					autoString = '';
+					if (!useHopperClock) {
+						if (allCommands[i].auto == true && allCommands[i].cmd.length > 0)
+							autoString = 'auto:1,';
+					} else {
+						if (i == 3) {
+							autoString = '';
+						} else {
+							autoString = 'auto:1,';
+						}
+					}
+
+					if (doNormalProcedure) {
+						if (allCommands[i].cmd.length > 0) {
+							// var commandQuoteWrap = '';
+							// if (allCommands[i].cmd.indexOf('"') > -1) {
+							var commandQuoteWrap = '\\"';
+							// }
+
+							if (allCommands[i].trackoutput == undefined)
+								allCommands[i].trackoutput = '';
+
+							if (useBlockdata) {
+								finalInitCmdArray[finalInitCmdArray.length] = ',{id:command_block_minecart,Command:"data merge block ~' + allCommands[i].posX + ' ~' + allCommands[i].posY + ' ~' + allCommands[i].posZ + ' {' + autoString + allCommands[i].trackoutput + 'Command:' + commandQuoteWrap + allCommands[i].cmd + commandQuoteWrap + '}"}';
+							} else {
+								finalInitCmdArray[finalInitCmdArray.length] = ',{id:command_block_minecart,Command:"setblock ~' + allCommands[i].posX + ' ~' + allCommands[i].posY + ' ~' + allCommands[i].posZ + ' ' + typeString + 'command_block' + dirToDirTag(allCommands[i].direction, allCommands[i].isCond) + ' 0 {' + autoString + allCommands[i].trackoutput + 'Command:' + commandQuoteWrap + allCommands[i].cmd + commandQuoteWrap + '}"}';
+							}
+							
+						} else {
+							// Omit the Command:"" part if there is no command specified
+							if (useBlockdata) {
+								//finalInitCmdArray[finalInitCmdArray.length] = ',{id:command_block_minecart,Command:blockdata ~' + allCommands[i].posX + ' ~' + allCommands[i].posY + ' ~' + allCommands[i].posZ + ' ' + typeString + 'command_block ' + dirToDamage(allCommands[i].direction, allCommands[i].isCond) + '}';
+								// There doesn't have to be anything here for the blockdata version since the command blocks are already placed using /fill
+							} else {
+								finalInitCmdArray[finalInitCmdArray.length] = ',{id:command_block_minecart,Command:"setblock ~' + allCommands[i].posX + ' ~' + allCommands[i].posY + ' ~' + allCommands[i].posZ + ' ' + typeString + 'command_block' + dirToDirTag(allCommands[i].direction, allCommands[i].isCond) + '"}';
+							}
+							
+						}
+					}
+				}
+
+
+				// This section is after the block of code above so that it can be ensured that the /fill commands are executed before the blockdata commands
+				if (useBlockdata) {
+					// Create /fill commands to place command blocks beforehand
+
+					var lowestCorner = {
+						x: 9999,
+						y: 9999,
+						z: 9999
+					};
+
+					var highestCorner = {
+						x: -9999,
+						y: -9999,
+						z: -9999
+					};
+
+					for (var i = 0; i < allCommands.length; i++) {
+
+						// Update lowest corner if this one is lower
+						if (allCommands[i].posX < lowestCorner.x)
+							lowestCorner.x = allCommands[i].posX;
+						if (allCommands[i].posY < lowestCorner.y)
+							lowestCorner.y = allCommands[i].posY;
+						if (allCommands[i].posZ < lowestCorner.z)
+							lowestCorner.z = allCommands[i].posZ;
+
+						// Update highest corner if this one is higher
+						if (allCommands[i].posX > highestCorner.x)
+							highestCorner.x = allCommands[i].posX;
+						if (allCommands[i].posY > highestCorner.y)
+							highestCorner.y = allCommands[i].posY;
+						if (allCommands[i].posZ > highestCorner.z)
+							highestCorner.z = allCommands[i].posZ;
+
+					}
+
+					var firstCmdBlockDir = dirToDirTag(allCommands[0].direction, false);
+
+					// Command blocks that are 'different':
+					for (var i = 0; i < allCommands.length; i++) {
+
+						if (allCommands[i].direction !== allCommands[0].direction || allCommands[i].repeating === true || allCommands[i].inputcmdblock === 'impulse' || allCommands[i].inputcmdblock === 'repeating' || allCommands[i].isCond === true) {
+
+							var typeString = '';
+
+							if (allCommands[i].repeating == true) {
+								if (useHopperClock) {
+									// Using a hopper clock instead, so it should be an impulse (regular) command block
+									typeString = '';
+								} else {
+									// Normal, 20hz repeat clock
+									typeString = 'repeating_';
+								}
+							} else {
+								typeString = 'chain_';
+							}
+							if (allCommands[i].inputcmdblock == 'impulse') {
+								typeString = '';
+							}
+							if (allCommands[i].inputcmdblock == 'repeating') {
+								typeString = 'repeating_';
+							}
+
+							if (allCommands[i+1] !== undefined && allCommands[i].direction === allCommands[i+1].direction && allCommands[i].isCond === allCommands[i+1].isCond && allCommands[i].inputcmdblock === allCommands[i+1].inputcmdblock && allCommands[i].repeating === allCommands[i+1].repeating) {
+								// The next command block in the array has the same basic type as the current one. Combine into a /fill command
+
+								var checkContinuous = 1;
+
+								while (allCommands[i+checkContinuous] !== undefined && allCommands[i].direction === allCommands[i+checkContinuous].direction && allCommands[i].isCond === allCommands[i+checkContinuous].isCond && allCommands[i].inputcmdblock === allCommands[i+checkContinuous].inputcmdblock && allCommands[i].repeating === allCommands[i+checkContinuous].repeating) {
+									checkContinuous++;
+								}
+
+								checkContinuous--;
+
+								finalInitCmdArray[finalInitCmdArray.length] = ',{id:command_block_minecart,Command:"fill ~'+allCommands[i].posX+' ~'+allCommands[i].posY+' ~'+allCommands[i].posZ+' ~'+allCommands[i+checkContinuous].posX+' ~'+allCommands[i+checkContinuous].posY+' ~'+allCommands[i+checkContinuous].posZ+' ' + typeString + 'command_block' + dirToDirTag(allCommands[i].direction, allCommands[i].isCond) + '"}';
+
+								i += checkContinuous; // skip all of the command blocks that were already included in this /fill command
+
+							} else {
+
+								finalInitCmdArray[finalInitCmdArray.length] = ',{id:command_block_minecart,Command:"setblock ~'+allCommands[i].posX+' ~'+allCommands[i].posY+' ~'+allCommands[i].posZ+' ' + typeString + 'command_block' + dirToDirTag(allCommands[i].direction, allCommands[i].isCond) + '"}';
+
+							}
+
+						}
+
+					}
+
+					// MIGHT HAVE TO CHANGE THIS TO A .SPLICE() AT THE BEGINNING OF THE ARRAY
+					finalInitCmdArray[finalInitCmdArray.length] = ',{id:command_block_minecart,Command:"fill ~'+lowestCorner.x+' ~'+lowestCorner.y+' ~'+lowestCorner.z+' ~'+highestCorner.x+' ~'+highestCorner.y+' ~'+highestCorner.z+' chain_command_block' + firstCmdBlockDir + '"}';
+
+				}
+
+
+				// Generate the initCmdString, which is used in the final command
+				for (i = 0; i < allInitCommands.length; i++) {
+					// if (allInitCommands[i].tag == 'sign' || (allInitCommands[i].cmd.indexOf('"') === -1 && allInitCommands[i].cmd.indexOf("'") === -1)) {
+					// 	finalInitCmdArray[finalInitCmdArray.length] = ',{id:command_block_minecart,Command:' + allInitCommands[i].cmd + '}';
+					// } else {
+					finalInitCmdArray[finalInitCmdArray.length] = ',{id:command_block_minecart,Command:"' + allInitCommands[i].cmd + '"}';
+					// }
+				}
+
+				// Check conditional chains
+				var previousTag = 'none'; // placeholder; default
+				var previousY = 0;
+				var previousZ = 0;
+
+				for (i = 0; i < allCommands.length; i++) {
+
+					if (allCommands[i].tag == 'do' && (allCommands[i].posY !== previousY || allCommands[i].posZ !== previousZ)) {
+						$('#option-box-length-x').val(parseInt($('#option-box-length-x').val()) + 2);
+
+						generateCompactCommand();
+
+						$('#output-notifications').show().html('The box length was automatically increased in order to keep the conditional chain intact.');
+
+						return;
+					}
+
+					previousTag = allCommands[i].tag;
+					previousY = allCommands[i].posY;
+					previousZ = allCommands[i].posZ;
+
+				}
+
+				// Had to put every entity into an array then reverse it because of the Passengers tag
+				finalInitCmdArray = finalInitCmdArray.reverse();
+
+				outputCommands = [];
+
+				var outputTemplate = 'summon falling_block ~ ~1 ~ {BlockState:{Name:stone},Time:1,Passengers:[{id:falling_block,BlockState:{Name:redstone_block},Time:1,Passengers:[{id:falling_block,BlockState:{Name:activator_rail},Time:1,Passengers:[{id:command_block_minecart,Command:"gamerule commandBlockOutput false"}&&INITCMDSTRING&&,{id:command_block_minecart,Command:"setblock ~ ~ ~1 command_block{Command:\\"fill ~ ~-3 ~-1 ~ ~ ~ air\\"}"},{id:command_block_minecart,Command:"setblock ~ ~-1 ~1 redstone_block"},{id:command_block_minecart,Command:"kill @e[type=command_block_minecart,distance=..1]"}]}]}]}';
+
+				for (i = 0; i < finalInitCmdArray.length; i++) {
+					if (initCmdString.length + finalInitCmdArray[i].length + 492 + 89 > 32500) {
+						initCmdString += ',{id:command_block_minecart,Command:"summon falling_block ~ ~2 ~ {BlockState:{Name:command_block},Time:1}"}';
+						outputCommands[outputCommands.length] = outputTemplate.replace('&&INITCMDSTRING&&', initCmdString);
+						initCmdString = '';
+					}
+
+					initCmdString += finalInitCmdArray[i];
+				}
+
+				if (initCmdString.length > 0) {
+					outputCommands[outputCommands.length] = outputTemplate.replace('&&INITCMDSTRING&&', initCmdString);
+				}
+
+				// var outputCommand = '/summon command_block_minecart ~ ~1 ~ {Command:kill @e[type=command_block_minecart,r=1],Riding:{id:command_block_minecart,Command:setblock ~ ~-1 ~1 redstone_block,Riding:{id:command_block_minecart,Command:setblock ~ ~ ~1 command_block 0 replace {Command:fill ~ ~-3 ~-1 ~ ~ ~ air},Riding:{' + initCmdString + 'id:command_block_minecart,Command:gamerule commandBlockOutput false,Riding:{id:command_block_minecart,Riding:{id:falling_block,Block:activator_rail,Time:1,Riding:{id:falling_block,Block:redstone_block,Time:1,Riding:{id:falling_block,Block:stone,Time:1}}}}}}}}' + generateBrackets();
+
+				// var outputCommand = 'summon falling_block ~ ~1 ~ {Block:stone,Time:1,Passengers:[{id:falling_block,Block:redstone_block,Time:1,Passengers:[{id:falling_block,Block:activator_rail,Time:1,Passengers:[{id:command_block_minecart,Command:gamerule commandBlockOutput false}' + initCmdString + ',{id:command_block_minecart,Command:setblock ~ ~ ~1 command_block 0 replace {Command:fill ~ ~-3 ~-1 ~ ~ ~ air}},{id:command_block_minecart,Command:setblock ~ ~-1 ~1 redstone_block},{id:command_block_minecart,Command:kill @e[type=command_block_minecart,r=1]}]}]}]}'; // 492 characters, not counting anything but the pure string
+
+				displayOutputError(false);
+
+				$('#output-container').empty();
+
+				for (var i = 0; i < outputCommands.length; i++) {
+					// outputCommands[i]
+					outputCommands[i] = outputCommands[i].replace(/~0 /g, '~ ');
+					$('#output-container').append("<textarea cols='50' rows='1' readonly class='output-command' onclick='this.focus();this.select()'></textarea><div class='output-stats'></div>");
+					$('.output-command').last().val(outputCommands[i]).css('display', 'inline-block');
+					$('.output-stats').last().html('Command Length: ' + outputCommands[i].length).slideDown(150);
+
+					if (outputCommands[i].length > 32500) {
+						displayOutputError('The character limit for command blocks was lowered to 32,500 in the 1.9 snapshots! This command is ' + (outputCommands[i].length - 32500) + ' characters over that limit!');
+					}
+
+					if (checkBrackets(outputCommands[i]) !== 0) {
+						if (checkBrackets(outputCommands[i]) > 0) {
+							highlightUnbalancedCmd('opening', outputCommands[i]);
+						} else {
+							highlightUnbalancedCmd('closing', outputCommands[i]);
+						}
+					}
+				}
+			}
+
+			function displayOutputError(errorText) {
+				if (errorText == false) {
+					$('#output-errors').hide();
+					return;
+				}
+				$('#output-errors').empty();
+				var lineBreak = '';
+				if ($('#output-errors').val().length > 0) {
+					lineBreak = '<br>';
+				}
+				$('#output-errors').append(errorText + lineBreak).slideDown(200);
+			}
+
+			displayBracketBalanceErrors = true;
+
+			function highlightUnbalancedCmd(type, outputCmd) {
+				if (!displayBracketBalanceErrors) {
+					return;
+				}
+				var inputCommands = $('#input-commands').val();
+				var isActuallyUnbalanced = false;
+				inputCommandsArray = inputCommands.split(getDelimiter());
+				for (j = inputCommandsArray.length - 1; j >= 0; j--) {
+					// Find the command(s) that are unbalanced
+					if (inputCommandsArray[j].substring(0, 2).indexOf('#') < 0 && inputCommandsArray[j].length > 0) {
+						// Only if not a comment line
+						var tarea = document.getElementById('input-commands');
+						if (type == 'opening' && checkBrackets(inputCommandsArray[j]) > 0) {
+							selectTextareaLine(tarea, j + 1);
+							isActuallyUnbalanced = true;
+						}
+						if (type == 'closing' && checkBrackets(inputCommandsArray[j]) < 0) {
+							selectTextareaLine(tarea, j + 1);
+							isActuallyUnbalanced = true;
+						}
+					}
+				}
+				if (isActuallyUnbalanced) {
+					if (checkBrackets(outputCmd) !== 0) {
+						if (checkBrackets(outputCmd) > 0) {
+							displayOutputError('There are ' + checkBrackets(outputCmd) + ' too many opening curly brackets in the final command! The command causing the error has been highlighted. <div id="ignore-unbalanced">Ignore from now on</div>');
+						} else {
+							displayOutputError('There are ' + Math.abs(checkBrackets(outputCmd)) + ' too many closing curly brackets in the final command! The command causing the error has been highlighted. <div id="ignore-unbalanced">Ignore from now on</div>');
+						}
+						$('#ignore-unbalanced').click(function() {
+							displayBracketBalanceErrors = false;
+							$('#output-errors').slideUp().empty();
+							$('#output-notifications').slideDown().html('The "unbalanced brackets" error will be ignored from now on.');
+							setTimeout(function() {
+								$('#output-notifications').fadeOut();
+							}, 3000);
+						})
+					}
+				}
+			}
+
+			function selectTextareaLine(tarea,lineNum) {
+			    lineNum--; // array starts at 0
+			    var lines = tarea.value.split(getDelimiter());
+
+			    // calculate start/end
+			    var startPos = 0, endPos = tarea.value.length;
+			    for(var x = 0; x < lines.length; x++) {
+			        if(x == lineNum) {
+			            break;
+			        }
+			        startPos += (lines[x].length+1);
+
+			    }
+
+			    var endPos = lines[lineNum].length+startPos;
+
+			    // do selection
+			    // Chrome / Firefox
+
+			    if(typeof(tarea.selectionStart) != "undefined") {
+			        tarea.focus();
+			        tarea.selectionStart = startPos;
+			        tarea.selectionEnd = endPos;
+			        return true;
+			    }
+
+			    // IE
+			    if (document.selection && document.selection.createRange) {
+			        tarea.focus();
+			        tarea.select();
+			        var range = document.selection.createRange();
+			        range.collapse(true);
+			        range.moveEnd("character", endPos);
+			        range.moveStart("character", startPos);
+			        range.select();
+			        return true;
+			    }
+
+			    return false;
+			}
+
+			function checkBrackets(command) {
+				return (command.split('{').length - 1) - (command.split('}').length - 1);
+			}
+
+			function getBoxSize(side) {
+				var maxVal = -999;
+				var minVal = 999;
+				for (i = 0; i < allCommands.length; i++) {
+					if (side == 'length') {
+						if (allCommands[i].posX > maxVal) {
+							maxVal = allCommands[i].posX;
+						}
+						if (allCommands[i].posX < minVal) {
+							minVal = allCommands[i].posX;
+						}
+					} else if (side == 'width') {
+						if (allCommands[i].posZ > maxVal) {
+							maxVal = allCommands[i].posZ;
+						}
+						if (allCommands[i].posZ < minVal) {
+							minVal = allCommands[i].posZ;
+						}
+					}
+				}
+				return maxVal - minVal;
+			}
+
+			function offsetCoordinates(offsetX, offsetY, offsetZ, orientation) {
+				// Simply offsets the coordinates if specified by the user. Just in a separate function to clean things up.
+				// Since this function should always run before the generateRotatedCoordinates() function,
+				// it should add 2 to the X offset, so it doesn't build the machine inside the starting stack.
+				offsetX += 3;
+				offsetY -= 2;
+				offsetZ = -Math.floor(getBoxSize('width') / 2) + offsetZ;
+				for (i = 0; i < allCommands.length; i++) {
+					allCommands[i].posX += offsetX;
+					allCommands[i].posY += offsetY;
+					allCommands[i].posZ += offsetZ;
+				}
+			}
+
+			function rotateDirectionCommandBlocks(rotation) {
+				// Rotation key:   1 = 90   2 = 180   3 = 270
+				var newdir = 0;
+				while (rotation > 0) {
+					for (i = 0; i < allCommands.length; i++) {
+						switch(allCommands[i].direction) {
+							case 'north':
+								newdir = 'east';
+								break;
+							case 'east':
+								newdir = 'south';
+								break;
+							case 'south':
+								newdir = 'west';
+								break;
+							case 'west':
+								newdir = 'north';
+								break;
+							default:
+								newdir = allCommands[i].direction;
+						}
+						allCommands[i].direction = newdir;
+					}
+					rotation -= 1;
+				}
+			}
+
+			function rotateDirection(direction, rotation) {
+				// Rotation key:   1 = 90   2 = 180   3 = 270
+				var newdir = direction;
+				while (rotation > 0) {
+						switch(newdir) {
+							case 'north':
+								newdir = 'east';
+								break;
+							case 'east':
+								newdir = 'south';
+								break;
+							case 'south':
+								newdir = 'west';
+								break;
+							case 'west':
+								newdir = 'north';
+						}
+					rotation -= 1;
+				}
+				return newdir;
+			}
+
+			function fixDirForOrientation(direction, orientation) {
+				// Orientation key (copy of it):   1 = X+   2 = X-   3 = Z+   4 = Z-
+				if (orientation == 1)
+					return direction;
+				if (orientation == 2) 
+					return rotateDirection(direction, 2);
+				if (orientation == 3)
+					return rotateDirection(direction, 1);
+				if (orientation == 4)
+					return rotateDirection(direction, 3);
+			}
+
+			function dirToDamageComparator(direction) {
+				switch(direction) {
+					case 'north':
+						return 0;
+					case 'east':
+						return 1;
+					case 'south':
+						return 2;
+					case 'west':
+						return 3;
+				}
+			}
+
+			function rotateSegSwap() {
+				var tempCommandTray = [];
+				// First put all commands in temp command tray
+				for (i = 0; i < allCommands.length; i++) {
+					tempCommandTray[i] = {cmd: allCommands[i].cmd, oldPosX: allCommands[i].posX, oldPosZ: allCommands[i].posZ};
+				}
+				// Then, swap the x with the y positions
+				for (i = 0; i < tempCommandTray.length; i++) {
+					allCommands[i].posX = tempCommandTray[i].oldPosZ;
+					allCommands[i].posZ = tempCommandTray[i].oldPosX;
+				}
+			}
+
+			function rotateSegNegate(axis) {
+				if (axis == 'x') {
+					for (i = 0; i < allCommands.length; i++) {
+						allCommands[i].posX *= -1;
+					}
+				} else {
+					for (i = 0; i < allCommands.length; i++) {
+						allCommands[i].posZ *= -1;
+					}
+				}
+			}
+
+			function generateRotatedCoordinates(orientation) {
+				// Orientation key:   1 = X+   2 = X-   3 = Z+   4 = Z-
+				// By default, make it oriented towards X+, then swap them and negate if needed
+
+				var tempCommandTray = [];
+				if (orientation == 2) {
+					rotateSegNegate('x');
+					rotateSegNegate('z');
+					rotateDirectionCommandBlocks(2);
+				} else if (orientation == 3) {
+					rotateSegSwap();
+					rotateDirectionCommandBlocks(1);
+					rotateSegNegate('x');
+				} else if (orientation == 4) {
+					rotateSegSwap();
+					rotateSegNegate('z');
+					rotateDirectionCommandBlocks(3);
+				}
+			}
+
+			$('#upload-textfile').click(function() {
+				document.getElementById("upload-hidden-button").click();
+			});
+
+			document.getElementById("upload-hidden-button").onchange = function() {
+				var file = document.getElementById("upload-hidden-button").files[0];
+				if (file) {
+				    var reader = new FileReader();
+				    reader.readAsText(file, "UTF-8");
+				    reader.onload = function (evt) {
+				        importWithResultMessage(evt.target.result);
+				    }
+				    reader.onerror = function (evt) {
+				        $('#project-error').html('The project file that was uploaded is not valid!');
+				    }
+				}
+			}
+
+			$('#export-download').click(function() {
+				download('cmdcombiner-project.html', $('#export-textarea').val());
+			});
+
+			function download(filename, text) {
+			  var element = document.createElement('a');
+			  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+			  element.setAttribute('download', filename);
+
+			  element.style.display = 'none';
+			  document.body.appendChild(element);
+
+			  element.click();
+
+			  document.body.removeChild(element);
+			}
+
+			$('#button-newproject').click(function() {
+				if (!promptOnOpen())
+					return;
+				saveProjectSimple();
+				window.location.reload();
+			});
+
+			$('.showallprojects').click(function() {
+				$('#showall-container').fadeIn(300);
+			});
+
+			function importWithResultMessage(projectJSON) {
+				loadProject(projectJSON);
+				console.log("READ:");
+				console.log(projectJSON);
+				$('#import-container').css('display', 'none');
+				$('#import-textarea').val('');
+				$('#import-result').css('display', 'block');
+				setTimeout(function() {
+					$('#import-result').fadeOut();
+				}, 3000);
+			}
+
+			$('#rename-done').click(function() {
+				$.post('php/cmdcombinerupdate.html', {
+					id_token: id_token,
+					user_id: profile.getId(),
+					project_name: $('#rename-input').val(),
+					project_code: generateExportString(),
+					project_id: currentOpenProj.id,
+					change: 'rename'
+				}, function(data) {
+					if (data == 'success') {
+						$('#rename-success-text').html('The current project was successfully renamed to "' + $('#rename-input').val() + '"').slideDown();
+						setTimeout(function() {
+							$('#rename-success-text').hide();
+							$('#rename-container').fadeOut(300);
+						}, 3000);
+						setCurrentOpenProject(currentOpenProj.id, $('#rename-input').val());
+						updateShownProjects();
+					} else {
+						$('#rename-error-text').html('There was an error renaming the project!').slideDown();
+						setTimeout(function() {
+							$('#rename-error-text').slideUp(300);
+						}, 3000);
+					}
+				});
+			});
+
+			$('#button-save-simple').click(function() {
+				saveProjectSimple();
+			});
+
+			function saveProjectSimple() {
+				$.post('php/cmdcombinerupdate.html', {
+					id_token: id_token,
+					user_id: profile.getId(),
+					project_name: currentOpenProj.name,
+					project_code: generateExportString(),
+					project_id: currentOpenProj.id,
+					change: 'save'
+				}, function(data) {
+					if (data == 'success') {
+						$('#open-project-result').html('"' + currentOpenProj.name + '" was successfully saved!').slideDown();
+						setTimeout(function() {
+							$('#open-project-result').slideUp(300);
+						}, 5000);
+
+						isDirty = false;
+					} else {
+						$('#project-error').html('There was an error saving "' + currentOpenProj.name + '"').slideDown();
+						setTimeout(function() {
+							$('#project-error').slideUp(300);
+						}, 5000);
+
+						isDirty = true;
+					}
+				});
+			}
+
+			$('#sign-collapse').click(function() {
+				$('#sign-wrapper').slideToggle();
+				$('#sign-collapse').toggleClass('sign-collapse-rotate');
+			});
+
+			$('#save-done').click(function() {
+				// Check if the name meets requirements
+				var inputProjectName = $('#save-input-name').val();
+				if (inputProjectName.length < 3) {
+					$('#save-error-text').html('The project name must be at least 3 characters long!').fadeIn(200);
+					setTimeout(function() {
+						$('#save-error-text').fadeOut();
+					}, 5000);
+
+					isDirty = true;
+					return;
+				}
+				if (inputProjectName.length > 60) {
+					$('#save-error-text').html('The project name cannot be more than 60 characters long!').fadeIn(200);
+					setTimeout(function() {
+						$('#save-error-text').fadeOut();
+					}, 5000);
+
+					isDirty = true;
+					return;
+				}
+
+				// Use $.post to add it to the server
+				var projectId;
+				$.post("php/cmdcombineradd.html", {
+					id_token: id_token,
+					user_id: profile.getId(),
+					user_name: profile.getName(),
+					project_name: inputProjectName,
+					project_code: generateExportString(),
+				}, function(data) {
+					if (data.substring(0, 7) == 'success') {
+						projectId = data.substring(8, data.length);
+						$('#save-success-text').html('Your project was saved successfully!').fadeIn(200);
+						$('#save-done').css('display', 'none');
+						setTimeout(function() {
+							$('#save-success-text').fadeOut();
+							$('#save-container').fadeOut();
+						}, 2000, function() {
+							$('#save-done').css('display', 'block');
+						});
+
+						isDirty = false;
+					} else {
+						$('#save-error-text').html('There was an error saving your project (' + data + ')').fadeIn(200);
+						setTimeout(function() {
+							$('#save-error-text').fadeOut();
+						}, 5000);
+
+						isDirty = true;
+					}
+					setCurrentOpenProject(projectId, inputProjectName);
+				});
+
+				// Update the projects on the page
+				setTimeout(function() {
+					updateShownProjects();
+				}, 2000);
+			});
+		</script>
+
+<div id="footer-main">&nbsp;</div>
+</body>
+<!-- Mirrored from mrgarretto.com/cmdcombiner by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 23 Apr 2020 21:36:56 GMT --></html>
