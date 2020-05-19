@@ -1,0 +1,111 @@
+Permissions
+gwarser edited this page on Mar 4 · 14 revisions
+uBlock's required (Chromium) permissions
+uBlock's required permissions are the same as those of Privacy Badger, except that Privacy Badger requires one extra permission, cookies. These are uBlock's required permissions:
+
+"permissions": [
+    "contextMenus",
+    "dns",
+    "privacy",
+    "storage",
+    "tabs",
+    "unlimitedStorage",
+    "webNavigation",
+    "webRequest",
+    "webRequestBlocking",
+    "http://*/*",
+    "https://*/*"
+],
+"privacy" is the only permission added in version 0.9.8.2. All the others were there since when uBlock was first published (except for "contextMenus" which was added at some point, to support blocking element from within the context menu).
+
+The privacy permission is needed for uBlock to be able to disable the setting "Prefetch resources to load pages more quickly". This will ensure no connection is opened at all for blocked requests: It's for your own protection privacy-wise.
+
+This is Privacy Badger required permissions:
+
+"permissions": [
+    "contextMenus",
+    "cookies",
+    "privacy",
+    "storage",
+    "tabs",
+    "unlimitedStorage",
+    "webNavigation",
+    "webRequest",
+    "webRequestBlocking",
+    "http://*/*",
+    "https://*/*"
+],
+"Access your data on all web sites"
+Since first version.
+
+To be able to inspect all net requests so that they can be cancelled if needed.
+Only on http- and https-based URL addresses.
+See code:
+
+browser.webRequest
+"Access your tabs and browsing activity"
+Since first version.
+
+This is necessary to be able to:
+
+Create new tabs (when you click on a filter list, to see its content)
+To detect when a tab is added or removed:
+To update badge
+To flush from memory internal data structures
+To find out which tab is currently active (to fill popup menu with associated stats/settings)
+To be able to inject the element picker script
+To implement the popup-blocker
+See code:
+
+browser.tabs
+browser.webNavigation
+"Access IP address and hostname information"
+Related permission: dns.
+
+Since version 1.25.0 (Firefox 60+ only).
+
+This warning is triggered by the dns permission, which allows to use the browser.dns API. The purpose is for uBO to gain the ability to reveal the canonical name of aliased hostnames.
+
+Note that even without this permission, uBO has the ability to see IP address and hostname information, through the browser.webRequest API which uBO already requires.
+
+Important: the statement "IP address" refers to the IP address of the servers to which your browser connects, NOT your specific IP address. uBO has no access to (and no need to know) your specific IP address.
+
+There is an Firefox issue regarding the confusing wording of the permission. Firefox 74 Beta 9 no longer asks for this permission.
+
+"Store unlimited amount of client-side data"
+Related permission: unlimitedStorage.
+
+Since first version.
+
+This permission is necessary to allow uBO to use more than 5 MB of storage. uBO uses client-side storage to save the assets downloaded from remote servers (filter lists and other assets), the compiled version of those assets and the selfie representation of various assets (for efficient launch time). The storage used by uBO is shown at the bottom of the Settings pane in the dashboard. Without this permission uBO would not be able to use more than 5 MB, which is not enough for uBO to function properly.
+
+"Change your privacy-related settings"
+Since version 0.9.8.2 (release notes).
+
+This is necessary to be able to:
+
+Disable "Prefetch resources to load pages more quickly"
+This will ensure no TCP connection is opened at all for blocked requests: It's for your own protection privacy-wise.[1]
+For pages with lots for blocked requests, this will actually remove overhead from page load (if you did not have the setting already disabled).
+When uBlock blocks a network request, the expectation is that it blocks completely the connection, hence the new permission is necessary for uBlock to do truthfully what it says it does.
+Disable hyperlink auditing/beacon (0.9.8.5)
+uBlock's primary purpose is to block network connections, not just data transfer. Not blocking the connection while just blocking the data transfer would mean uBlock is lying to users. So this permission will stay, and sorry for those who do not understand that it actually allows uBlock to do its intended job more thoroughly[2]. A blocker which does not thoroughly prevent connections is not a real blocker.
+
+Privacy Badger also requires exactly the same permissions. I want uBlock to also serve privacy-minded users first.
+
+If prefetching had been disabled by default, this new permission would not be needed, but prefetching is unfortunately enabled by default, and under Privacy heading, which is itself hidden by default under "advanced settings", and even at this point, you would still have to dig to find out the negative side effects of prefetching (related: dark patterns).
+
+c
+
+Also, the benefits of prefetching are probably marginal, and in the context of a blocker, the benefits could be negative, since a lot of useless connections would be made, just to be discarded after the browser find out the requests won't be made anyway. So do not fall for the "lost of major performance boost" claim I read elsewhere, this is just a silly and baseless claim.
+
+Edit: actually, prefetching is worst than I first thought, I had tested that it was just a connection issue, but as per Google:
+
+If you turn this setting on in Chrome, websites (and any of their embedded resources) that are prerendered or prefetched may set and read their own cookies as if you had visited them before -- even if you don’t visit the prerendered or prefetched pages after all.
+
+See code:
+
+browser.privacy.network
+[1] Merely opening a TCP connection leaks your IP address to the remote server -- this is incompatible with an extension which primary purpose is to completely prevent connections to remove server, not just merely prevent the transfer of data. For instance, see what can be found with a just that connection being established (IP, OS Fingerprinting, IP Address Location).
+
+[2] In version 0.9.8.3, there will be a setting to allow re-enabling prefetching, default will still be to disable it though.
